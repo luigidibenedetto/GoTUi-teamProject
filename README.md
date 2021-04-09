@@ -1,1 +1,1 @@
-# gotui-react
+# GoTUI - React App
