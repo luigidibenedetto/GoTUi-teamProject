@@ -1,7 +1,7 @@
 import './App.css';
-import HomePage from './Pages/HomePage'
-import DestinationPage from './Pages/DestinationPage'
-import ActivityPage from './Pages/ActivityPage'
+import HomePage from './pages/HomePage'
+import DestinationPage from './pages/DestinationPage'
+import ActivityPage from './pages/ActivityPage'
 import {
   BrowserRouter as Router,
   Switch,
