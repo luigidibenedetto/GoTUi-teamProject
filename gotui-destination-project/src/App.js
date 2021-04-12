@@ -18,6 +18,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <h1>Pluto</h1>
         <Switch>
           <Route path="/:lang/:destination/:activity">
             <ActivityPage />
