@@ -11,6 +11,7 @@ import {
   useParams
 } from "react-router-dom";
 import Header from './Components/Header';
+import Footer from './Components/Footer';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
     <Router>
       <div className="App">
         <Header />
+        <Footer />
         <Switch>
           <Route path="/:lang/:destination/:activity">
             <ActivityPage />
