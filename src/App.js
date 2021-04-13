@@ -10,6 +10,7 @@ import {
   useRouteMatch,
   useParams
 } from "react-router-dom";
+import Header from './Components/Header';
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <h1>Pluto</h1>
+        <Header />
         <Switch>
           <Route path="/:lang/:destination/:activity">
             <ActivityPage />
