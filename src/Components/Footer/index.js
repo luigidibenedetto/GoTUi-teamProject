@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="footer">
 
             <div className="footer__top">
-                <div class="accordion">
+                <div class="accordion" style={{borderBottom: showLinks ? 'none' : ''}}>
                     <div className="accordion_bundle">
                         <span class="accordion__title">Wir empfehlen</span>
                         { showLinks && (
@@ -22,7 +22,7 @@ export default function Footer() {
                         )}
                     </div>
                     <div className="arrow_down">
-                        <img src="https://tui-b2c-static.imgix.net/icons/arrow_down.svg" onClick={()=>setShowLinks(!showLinks)} alt="arrow_down" />    
+                        <img style={{transform: showLinks ? 'rotate(180deg)' : ''}} src="https://tui-b2c-static.imgix.net/icons/arrow_down.svg" onClick={()=>setShowLinks(!showLinks)} alt="arrow_down" />    
                     </div>
                 </div>
 
