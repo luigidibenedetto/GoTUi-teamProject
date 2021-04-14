@@ -1,13 +1,29 @@
-import './style.scss'
-import logo from './../../Assets/images/logo.svg'
+import './style.scss';
+import logo from './../../Assets/images/logo.svg';
+import { useState } from 'react';
 
 export default function Footer() {
+    const [showLinks, setShowLinks] = useState(false);
+
     return(
         <div className="footer">
 
             <div className="footer__top">
                 <div class="accordion">
-                    <span class="accordion__title">Wir empfehlen</span>
+                    <div className="accordion_bundle">
+                        <span class="accordion__title">Wir empfehlen</span>
+                        { showLinks && (
+                            <div className="accordion__links">
+                                <a href="/de/mallorca/" >Mallorca</a>
+                                <a href="/de/punta-cana/" >Punta Cana</a>
+                                <a href="/de/cancun/" >Cancun</a>
+                                <a href="/de/tenerife/" >Tenerife</a>
+                            </div>
+                        )}
+                    </div>
+                    <div className="arrow_down">
+                        <img src="https://tui-b2c-static.imgix.net/icons/arrow_down.svg" onClick={()=>setShowLinks(!showLinks)} alt="arrow_down" />    
+                    </div>
                 </div>
 
                 <div class="top_preferences">
