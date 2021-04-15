@@ -1,6 +1,6 @@
 import { useState, useRef } from "react"
 
-//import "./Carousel.css";
+import "./styles.scss";
 
 const destinations = [
   { id: 1,
@@ -45,35 +45,30 @@ const destinations = [
   },
 ]
 
-const topCities = "TOP CITIES"; //lingua variabile
+const titleTopCities = "TOP CITIES"; //lingua variabile
+const widthCard = 334; //larghezza card + padding (318 + 16)
+const maxPosCities = (destinations.length - (window.innerWidth / widthCard)) * widthCard;
+//console.log(ref.current.offsetWidth) //Verificare larghezza DIV carosello piuttosto che larghezza finestra
 
 function Carousel () {
   
-  const [ posCities, setPosCities ] = useState(0)
-  const ref = useRef(null)
-
-  //console.log("PIXEL", window.innerWidth);
-  //console.log("MAX", posCitiesMax);
-  //console.log("CITIES", posCities);
+  const [ posCities, setPosCities ] = useState(0);
+  const ref = useRef(null);
 
   function fnScroll (scrollOffset) {
     ref.current.scrollLeft += scrollOffset;
     
     if (scrollOffset > 0) {
-      setPosCities(ref.current.scrollLeft + 334);
+      setPosCities(ref.current.scrollLeft + widthCard);
     } else {
-      setPosCities(ref.current.scrollLeft - 334);
+      setPosCities(ref.current.scrollLeft - widthCard);
     }
-
-    //console.log("Valore offset", scrollOffset)
-    //console.log("Valore SCROLLLEFT", ref.current.scrollLeft)
-    
   }
 
   return (
     <div> 
       <div className="topCities">
-        <h2 className="title__h2 topcities__title">{topCities}</h2>
+        <h2 className="title__h2 topcities__title">{titleTopCities}</h2>
         <div className="topCities__Carousel">
           <section className="carousel">
             <section className="carousel__slot" ref={ref}>
@@ -89,13 +84,13 @@ function Carousel () {
             </section>
             
             <div className={posCities === 0 ? "carousel__navigator carousel__navigator__left carousel__navigator__disabled" : "carousel__navigator carousel__navigator__left"}>
-              <div className="carousel__arrow" onClick={() => fnScroll(-318)}>
+              <div className="carousel__arrow" onClick={() => fnScroll(-widthCard)}>
                 <span className="arrow">{"<"}</span>
                 {/*<img src="https://tui-b2c-static.imgix.net/icons/arrow_right_carousel.svg" alt="chevron left" title="" loading="lazy" className="icon"/>*/}
               </div>
             </div>
-            <div className={posCities > 2004 ? "carousel__navigator carousel__navigator__right carousel__navigator__disabled" : "carousel__navigator carousel__navigator__right"}>
-              <div className="carousel__arrow" onClick={() => fnScroll(+318)}>
+            <div className={posCities >= maxPosCities ? "carousel__navigator carousel__navigator__right carousel__navigator__disabled" : "carousel__navigator carousel__navigator__right"}>
+              <div className="carousel__arrow" onClick={() => fnScroll(+widthCard)}>
                 <span className="arrow">{">"}</span>
                 {/*<img src="https://tui-b2c-static.imgix.net/icons/arrow_right_carousel.svg" alt="chevron right" title="" loading="lazy" className="icon"/>*/}
               </div>
