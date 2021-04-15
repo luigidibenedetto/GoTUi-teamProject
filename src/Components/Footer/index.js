@@ -3,15 +3,17 @@ import logo from './../../Assets/images/logo.svg';
 import { useState } from 'react';
 
 export default function Footer() {
-    const [showLinks, setShowLinks] = useState(false);
+    const mql = window.matchMedia('(min-width: 1024px)');
+    const [showLinks, setShowLinks] = useState(mql.matches ? true : false);
+    console.log("mql= ",mql)
 
     return(
         <div className="footer">
 
             <div className="footer__top">
-                <div class="accordion" style={{borderBottom: showLinks ? 'none' : ''}}>
+                <div className="accordion" style={{borderBottom: showLinks ? 'none' : ''}}>
                     <div className="accordion_bundle">
-                        <span class="accordion__title">Wir empfehlen</span>
+                        <span className="accordion__title">Wir empfehlen</span>
                         { showLinks && (
                             <div className="accordion__links">
                                 <a href="/de/mallorca/" >Mallorca</a>
@@ -26,12 +28,12 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div class="top_preferences">
-                    <span class="top_preferences_title">Einstellungen</span>
+                <div className="top_preferences">
+                    <span className="top_preferences_title">Einstellungen</span>
 
-                    <div class="dropdown">
-                        <label for="language" class="dropdown__label">Sprache:</label> 
-                        <select id="language" class="dropdown__select">
+                    <div className="dropdown">
+                        <label htmlFor="language" className="dropdown__label">Sprache:</label> 
+                        <select id="language" className="dropdown__select">
                             <option value="uk">
                                 English (UK)
                             </option>
@@ -65,9 +67,9 @@ export default function Footer() {
                         </select>
                     </div>
 
-                    <div class="dropdown">
-                        <label for="currency" class="dropdown__label">Währung:</label> 
-                        <select id="currency" class="dropdown__select">
+                    <div className="dropdown">
+                        <label htmlFor="currency" className="dropdown__label">Währung:</label> 
+                        <select id="currency" className="dropdown__select">
                         <option value="EUR">
                             Euro
                         </option><option value="USD">
@@ -177,10 +179,10 @@ export default function Footer() {
             </div>
 
             <div className="footer__bottom">             
-                <div class="footer__bottom__description"></div>
+                <div className="footer__bottom__description"></div>
                     <img src={logo} alt="tui"/>
                 
-                <span class="footer__bottom__description__text">
+                <span className="footer__bottom__description__text">
                     © 2019 Musement S.p.A, Teil der TUI Group VAT IT07978000961 - Lizenz nº 170695
                 </span>
             </div>
