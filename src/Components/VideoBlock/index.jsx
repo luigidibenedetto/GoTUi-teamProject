@@ -18,8 +18,11 @@ function VideoBlock() {
                                 </video>
                             </div>
                         </div>
+                        {/*qui ci va il TakeCare component */}
                     </div>
                 </div>
             </section>
         </section>
 }
+
+export default VideoBlock;

@@ -1,0 +1,74 @@
+.home__benefits_2OH9o {
+  display: block;
+  box-sizing: border-box;
+  background-color: #fff;
+  width: 100%;
+}
+
+.home__benefits__content_1vYnz {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px 15px;
+}
+
+.home__benefits__content__section_6wu2M {
+  width: calc(100% + 30px);
+  margin-left: -15px;
+}
+
+.benefits_280kw {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.title__h2_1bk59 {
+  font-size: 22px;
+  line-height: 26px;
+}
+
+.benefits__subtitle_1PnBc {
+  font-family: TUIType, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  margin-top: 5px;
+  color: #333;
+}
+
+.benefits__video_ezefK {
+  padding: 56.25% 0 0;
+  position: relative;
+  height: 180px;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.benefits__embed_sXDdH {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video_1XFBK {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .benefits_280kw {
+    width: 100%;
+  }
+
+  .title__h2_1bk59 {
+    font-size: 26px;
+    line-height: 30px;
+  }
+
+  .benefits__video_ezefK {
+    height: 250px;
+  }
+}
