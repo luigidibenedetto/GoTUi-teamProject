@@ -130,10 +130,14 @@
         height: 388px;
 
         .footer__top {
-            padding: 24px 79px 46px 15px;
+            padding: 0 79px 46px 15px;
             margin: 0;
             display: flex;
             justify-content: space-between;
+
+            label{
+                margin-top: 15px;
+            }
 
             .accordion{
                 flex-grow: 1;
@@ -160,11 +164,23 @@
 
             .top_preferences{
                 margin-right: 60px;
+                max-width: 280px;
             }
 
             .accordion{
                 border-top: none;
                 margin-top: 20px;
+
+                .accordion_bundle{
+
+                    .accordion__title {
+                        font-size: 19px;
+                    }
+                    
+                    .accordion__links a{
+                        font-size: 16px;
+                    }
+                }
             }
         }
           
