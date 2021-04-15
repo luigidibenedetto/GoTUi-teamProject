@@ -1,0 +1,41 @@
+body{
+    background-color: #f2f5f6;
+}
+.TabWrapper{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.TopDestinations{
+display: flex;
+flex-wrap: wrap;
+}
+.destinations{
+background-color: red;
+margin: 5px;
+padding: 5px;
+border-radius: 10px;
+}
+.TopCountriesList{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-width: 70%;
+}
+.countries{
+    padding: 20px;
+    border-bottom: 1px solid #dce4e6;
+    box-sizing: border-box;
+}
+.countries:hover{
+    cursor: pointer;
+}
+.active{
+    border-bottom: 5px solid #70cbf4;
+}
+.destinations{
+    display: none;
+}
+.toShow{
+    display: block;
+}

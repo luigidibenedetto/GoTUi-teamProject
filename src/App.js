@@ -2,6 +2,7 @@ import './App.css';
 import HomePage from './pages/HomePage'
 import DestinationPage from './pages/DestinationPage'
 import ActivityPage from './pages/ActivityPage'
+import TopCountries from './components/TopCountries'
 import {
   BrowserRouter as Router,
   Switch,
@@ -31,6 +32,7 @@ function App() {
           </Route>
         </Switch>
       </div>
+      <TopCountries />
     </Router>
   );
 }
