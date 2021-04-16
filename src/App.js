@@ -2,7 +2,7 @@ import './App.css';
 import HomePage from './pages/HomePage'
 import DestinationPage from './pages/DestinationPage'
 import ActivityPage from './pages/ActivityPage'
-import InfoBlock from './components/InfoBlock'
+import InfoBlock from './components/InfoBlock/index'
 import {
   BrowserRouter as Router,
   Switch,
