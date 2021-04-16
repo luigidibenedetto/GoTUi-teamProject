@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './TopCountries.css'
+import './style.scss'
 const countries = [
     {
         name: 'Turchia',
@@ -24,27 +24,29 @@ const countries = [
 ]
 
 export default () => {
-    const [countryActive, setcountryActive] = useState(null);
-    const [contentActive, setcontentActive] = useState(null)
-    const topNations = countries.map((data, active) => (
-        <span className={` countries ${countryActive === active ? "active" : ""}`} onClick={() => { setcountryActive(active); setcontentActive(active) }}> {`${data.name}`}</ span>
+
+    const [active, setActive] = useState(0);
+    const TopCountries = countries.map((data, index) => (
+        < span className={`countries ${index === active ? "active" : ""}`} onClick={() => { setActive(index) }}> {`${data.name}`}</ span >
     ))
-    const topDestinations = countries.map((data, active) => (data.destinations.map((activity) =>
-        <div className={`destinations ${contentActive === active ? "toShow" : ""}`}> {`${activity}`}</div>
-    ))
+    const topDestinations = countries.map((data, index) => (
+        <div className={`destinationsWrap ${index === active ? "toShow" : ""}`}>{(data.destinations.map((activity) =>
+            <div className={`destinations`}> {`${activity}`}</div>
+        ))}</div>)
 
     );
     return (
-        <div className={'TabWrapper'}>
-            <div className={'TopCountriesList'}>
-                {topNations}
-            </div>
-            <div className={'TopDestinations'}>
-                {topDestinations}
-            </div>
-        </div >
+        <div className={'TopCountriesContainer'}>
+            <h2> Wohin soll's gehen? </h2>
+            <div className={'TabWrapper'}>
+                <div className={'TopCountriesList'}>
+                    {TopCountries}
+                </div>
+                <div className={'TopDestinations'}>
+                    {topDestinations}
+                </div>
+            </div >
+        </div>
     );
-
-
 }
 

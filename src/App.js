@@ -2,7 +2,7 @@ import './App.css';
 import HomePage from './pages/HomePage'
 import DestinationPage from './pages/DestinationPage'
 import ActivityPage from './pages/ActivityPage'
-import TopCountries from './components/TopCountries'
+import TopCountries from './components/TopCountries/index'
 import {
   BrowserRouter as Router,
   Switch,
