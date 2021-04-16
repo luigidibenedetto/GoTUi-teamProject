@@ -123,6 +123,7 @@ section {
 @media (min-width: 768px) {
   .carousel__navigator {
     height: calc(100% - 10px);
+    
     justify-content: center;
     align-items: center;
     position: absolute;
@@ -149,5 +150,19 @@ section {
 @media (max-width: 768px) {
   .arrow {
     display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .icon {
+    width: 13px;
+    height: 18px;
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .icon__left {
+    transform: rotate(180deg);
   }
 }

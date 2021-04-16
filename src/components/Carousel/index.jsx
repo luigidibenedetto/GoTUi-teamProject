@@ -85,14 +85,14 @@ function Carousel () {
             
             <div className={posCities === 0 ? "carousel__navigator carousel__navigator__left carousel__navigator__disabled" : "carousel__navigator carousel__navigator__left"}>
               <div className="carousel__arrow" onClick={() => fnScroll(-widthCard)}>
-                <span className="arrow">{"<"}</span>
-                {/*<img src="https://tui-b2c-static.imgix.net/icons/arrow_right_carousel.svg" alt="chevron left" title="" loading="lazy" className="icon"/>*/}
+                {/*<span className="arrow">{"<"}</span>*/}
+                <img src="https://tui-b2c-static.imgix.net/icons/arrow_right_carousel.svg" alt="chevron left" title="" loading="lazy" className="icon icon__left"/>
               </div>
             </div>
             <div className={posCities >= maxPosCities ? "carousel__navigator carousel__navigator__right carousel__navigator__disabled" : "carousel__navigator carousel__navigator__right"}>
               <div className="carousel__arrow" onClick={() => fnScroll(+widthCard)}>
-                <span className="arrow">{">"}</span>
-                {/*<img src="https://tui-b2c-static.imgix.net/icons/arrow_right_carousel.svg" alt="chevron right" title="" loading="lazy" className="icon"/>*/}
+                {/*<span className="arrow">{">"}</span>*/}
+                <img src="https://tui-b2c-static.imgix.net/icons/arrow_right_carousel.svg" alt="chevron right" title="" loading="lazy" className="icon"/>
               </div>
             </div>
           </section>
