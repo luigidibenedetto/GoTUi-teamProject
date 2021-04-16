@@ -2,8 +2,8 @@ import './App.css';
 import HomePage from './pages/HomePage'
 import DestinationPage from './pages/DestinationPage'
 import ActivityPage from './pages/ActivityPage'
-import Hero from './Components/Hero'
-import TakeCare from './Components/TakeCare'
+import Hero from './components/Hero'
+import TakeCare from './components/TakeCare'
 import {
   BrowserRouter as Router,
   Switch,

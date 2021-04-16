@@ -1,12 +1,12 @@
 .TakeCare {
-  max-width: 1440px;
+  max-width: 90%;
   margin: auto;
   background-color: #f2f5f6;
   padding: 42px 15px 47px;
 }
 
-.banner_trusted_2mdG- {
-  width: 100%;
+.banner_trusted {
+  max-width: 100%;
   border-radius: 3px;
   padding: 22px 16px;
   border: 1px solid #70cbf4;
@@ -24,13 +24,13 @@
   gap: 14px 12px;
 }
 
-.banner_trusted__icon_utoGF {
+.banner_trusted__icon {
   grid-area: logo;
   height: 76px;
   width: 76px;
 }
 
-.banner_trusted__title_2_J4w {
+.banner_trusted__title {
   font-family: TUITypeLt, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 20px;
   grid-area: title;
@@ -38,22 +38,11 @@
   font-weight: 700;
 }
 
-.banner_trusted__content_2-z8- {
+.banner_trusted__content {
   grid-area: content;
 }
 
-.banner_trusted__content__moreinfo_205SJ {
+.banner_trusted__content__moreinfo {
   font-family: TUITypeLtBd, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
-}
-
-#takecare_img {
-  width: 16px;
-  height: 16px;
-}
-
-@media (min-width: 768px) {
-  .home__top_section_C6mau {
-    padding: 51px 15px;
-  }
 }
