@@ -1,23 +1,21 @@
-.home__benefits_2OH9o {
+.home__benefits {
   display: block;
   box-sizing: border-box;
   background-color: #fff;
-  width: 100%;
 }
 
-.home__benefits__content_1vYnz {
-  max-width: 1440px;
-  width: 100%;
+.home__benefits__content {
+  max-width: 100%;
   margin: 0 auto;
   padding: 30px 15px;
 }
 
-.home__benefits__content__section_6wu2M {
+.home__benefits__content__section {
   width: calc(100% + 30px);
   margin-left: -15px;
 }
 
-.benefits_280kw {
+.benefits {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,19 +24,19 @@
   margin: 0 auto;
 }
 
-.title__h2_1bk59 {
+.title__h2 {
   font-size: 22px;
   line-height: 26px;
 }
 
-.benefits__subtitle_1PnBc {
+.benefits__subtitle {
   font-family: TUIType, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   margin-top: 5px;
   color: #333;
 }
 
-.benefits__video_ezefK {
+.benefits__video {
   padding: 56.25% 0 0;
   position: relative;
   height: 180px;
@@ -46,7 +44,7 @@
   margin-top: 30px;
 }
 
-.benefits__embed_sXDdH {
+.benefits__embed {
   position: absolute;
   top: 0;
   left: 0;
@@ -54,21 +52,21 @@
   height: 100%;
 }
 
-.video_1XFBK {
+.video {
   width: 100%;
 }
 
 @media (min-width: 768px) {
-  .benefits_280kw {
+  .benefits {
     width: 100%;
   }
 
-  .title__h2_1bk59 {
+  .title__h2 {
     font-size: 26px;
     line-height: 30px;
   }
 
-  .benefits__video_ezefK {
+  .benefits__video {
     height: 250px;
   }
 }

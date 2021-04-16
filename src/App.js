@@ -2,7 +2,7 @@ import './App.css';
 import HomePage from './pages/HomePage'
 import DestinationPage from './pages/DestinationPage'
 import ActivityPage from './pages/ActivityPage'
-import VideoBlock from './Components/VideoBlock'
+import VideoBlock from './components/VideoBlock/index.jsx'
 import {
   BrowserRouter as Router,
   Switch,
