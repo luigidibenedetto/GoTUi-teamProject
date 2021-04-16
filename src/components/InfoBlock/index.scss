@@ -56,39 +56,29 @@
 }
 
 @media (min-width: 768px) {
-  .benefits__content_ivzmd {
+  .benefits__content {
     flex-direction: row;
     justify-content: space-between;
     padding: 30px 0;
   }
 
-  .benefits__content__box_1mMht {
+  .benefits__content__box {
     margin-bottom: 0;
     flex-direction: row;
   }
 
-  .benefits__content__box__icon_2gnhp {
+  .benefits__content__box__icon {
     margin-bottom: 0;
     margin-right: 15px;
   }
 
-  .benefits__content__box__info_QVyOJ {
+  .benefits__content__box__info {
     max-width: 174px;
     align-items: flex-start;
   }
 
-  .benefits__content__box_1mMht {
+  .benefits__content__box {
     margin-bottom: 0;
     flex-direction: row;
-  }
-
-  .benefits__content__box__icon_2gnhp {
-    margin-bottom: 0;
-    margin-right: 15px;
-  }
-
-  .benefits__content__box__info_QVyOJ {
-    max-width: 174px;
-    align-items: flex-start;
   }
 }

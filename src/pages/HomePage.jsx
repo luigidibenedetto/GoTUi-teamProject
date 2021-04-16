@@ -1,5 +1,7 @@
+import InfoBlock from '../components/InfoBlock'
 export default function HomePage() {
-    return(
-        <h1>HomePage</h1>
-    );
+    return <div>
+        		<h1>HomePage</h1>
+						<InfoBlock />
+			</div>
 }
