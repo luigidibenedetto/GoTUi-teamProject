@@ -23,8 +23,7 @@ const countries = [
     }
 ]
 
-export default () => {
-
+function TopCountries() {
     const [active, setActive] = useState(0);
     const TopCountries = countries.map((data, index) => (
         < span className={`countries ${index === active ? "active" : ""}`} onClick={() => { setActive(index) }}> {`${data.name}`}</ span >
@@ -50,3 +49,4 @@ export default () => {
     );
 }
 
+export default TopCountries;
