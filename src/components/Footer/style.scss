@@ -94,18 +94,16 @@
     .footer__bottom{
         display: flex;
         justify-content: left;
-        align-items: baseline;
+        align-items: center;
         bottom:0;
         left:0;
-        width: 100%;
-        height:55px;
+        height: 50px;
         padding: 10px 15px;
         border-top: 1px solid #edf1f2;
         border-bottom: 1px solid #edf1f2;
 
         img{
             width:5%;
-            padding-top: 5px;
         }
 
         span{
@@ -179,7 +177,8 @@
         }
           
         .footer__bottom{
-            padding: 16px 30px;
+            padding: 16px 0;
+            margin: 0 60px;
     
             img{
                 width:2%;
