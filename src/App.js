@@ -2,7 +2,6 @@ import './App.css';
 import HomePage from './pages/HomePage'
 import DestinationPage from './pages/DestinationPage'
 import ActivityPage from './pages/ActivityPage'
-import VideoBlock from './components/VideoBlock/index.jsx'
 import {
   BrowserRouter as Router,
   Switch,
@@ -20,7 +19,6 @@ function App() {
     <Router>
       <div className="App">
         <h1>Pluto</h1>
-        <VideoBlock/>
         <Switch>
           <Route path="/:lang/:destination/:activity">
             <ActivityPage />
