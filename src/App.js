@@ -11,15 +11,15 @@ import {
   useRouteMatch,
   useParams
 } from "react-router-dom";
-
+import Carousel from './components/Carousel/index';
 
 function App() {
-
-
   return (
     <Router>
       <div className="App">
-        <h1>Pluto</h1>
+        
+        <Carousel />
+        
         <Switch>
           <Route path="/:lang/:destination/:activity">
             <ActivityPage />
