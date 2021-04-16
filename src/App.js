@@ -21,8 +21,6 @@ function App() {
     <Router>
       <div className="App">
         <h1>Pluto</h1>
-        <Hero />
-        <TakeCare />
         <Switch>
           <Route path="/:lang/:destination/:activity">
             <ActivityPage />
