@@ -1,4 +1,4 @@
-import './ActivityCard.scss';
+import './style.scss';
 
 function ActivityCard() {
   return (

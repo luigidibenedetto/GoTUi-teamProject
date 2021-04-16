@@ -1,4 +1,4 @@
-import './DestinationCard.scss';
+import './style.scss';
 
 function DestinationCard() {
   return (

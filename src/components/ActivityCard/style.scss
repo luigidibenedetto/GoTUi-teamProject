@@ -1,21 +1,8 @@
-// @font-face {
-//   font-family: TUIType;
-//   src: url('https://assets.musement.com/fonts/TUIType.woff') format('woff');
-// }
-@font-face {
-  font-family: TUITypeLtBd;
-  src: url('https://assets.musement.com/fonts/TUITypeLtBd.woff') format('woff');
-}
-@font-face {
-  font-family: TUITypeLt;
-  src: url('https://assets.musement.com/fonts/TUITypeLt.woff') format('woff');
-}
 
 .ActivityCard {
   cursor: pointer;
   min-width: 280px;
   max-width: 281px;
-  height: 335px;
   border-radius: 5px;
   box-shadow: 0 2px 8px 0 rgb(35 35 35 / 15%);
 
@@ -89,6 +76,7 @@
       }
     }
     .content_cancellation {
+      font-family: TUITypeLt,"Helvetica Neue",Helvetica,Arial,sans-serif;
       padding-bottom: 9px;
       color: #69bc6b;
       display: flex;
@@ -119,6 +107,7 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
+      align-self: flex-end;
       border-top: 1px solid #edf1f2;
       padding-top: 3px;
 
