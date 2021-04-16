@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import "./style.scss";
 import logo from './../../Assets/images/logo.svg'
-//prova
 
 function Header() {
   return (
