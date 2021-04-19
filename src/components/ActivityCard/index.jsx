@@ -1,6 +1,6 @@
 import './style.scss';
 
-function ActivityCard() {
+function ActivityCard({ activity }) {
   return (
   <div 
   className="ActivityCard">
@@ -10,7 +10,7 @@ function ActivityCard() {
       <div className="cover_image-wrapper">
         <img 
           className="image"
-          src="https://images.musement.com/cover/0037/82/thumb_3681910_cover_header.jpeg?q=70&fit=crop&auto=format&w=280&h=115"
+          src={activity.image}
           alt="city"
         />
       </div>
@@ -20,8 +20,8 @@ function ActivityCard() {
       <span className="content_label">TUI COLLECTION</span>
 
       <section className="content_heading">
-        <h3 className="heading_title">Speciale Nysiros</h3>
-        <p className="heading_description">Questa è una descrizione esempio. Visto che bella la card?</p>
+        <h3 className="heading_title">{activity.name}</h3>
+        <p className="heading_description">{activity.activity}</p>
       </section>
 
       <section>
