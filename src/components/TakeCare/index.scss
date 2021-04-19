@@ -1,8 +1,11 @@
 .TakeCare {
   max-width: 90%;
   margin: auto;
-  background-color: #f2f5f6;
   padding: 42px 15px 47px;
+}
+
+a {
+  text-decoration: none;
 }
 
 .banner_trusted {
@@ -22,6 +25,7 @@
   grid-auto-flow: row;
   grid-gap: 14px 12px;
   gap: 14px 12px;
+  text-decoration: none;
 }
 
 .banner_trusted__icon {
@@ -36,13 +40,16 @@
   grid-area: title;
   align-self: center;
   font-weight: 700;
+  text-decoration: none;
 }
 
 .banner_trusted__content {
   grid-area: content;
+  text-decoration: none;
 }
 
 .banner_trusted__content__moreinfo {
   font-family: TUITypeLtBd, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
+  text-decoration: none;
 }
