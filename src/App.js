@@ -2,6 +2,8 @@ import './App.css';
 import HomePage from './pages/HomePage'
 import DestinationPage from './pages/DestinationPage'
 import ActivityPage from './pages/ActivityPage'
+import Header from './components/Header'
+import Footer from './components/Footer'
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,6 +14,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <Header />
         <Switch>
           <Route path="/:lang/:destination/:activity">
             <ActivityPage />
@@ -23,6 +26,7 @@ function App() {
             <HomePage />
           </Route>
         </Switch>
+        <Footer />
       </div>
     </Router>
   );
