@@ -5,12 +5,14 @@ import { useState } from 'react';
 export default function Footer() {
     const mql = window.matchMedia('(min-width: 1024px)');
     const [showLinks, setShowLinks] = useState(mql.matches ? true : false);
+    console.log("mql.matches", mql.matches);
+    console.log("showLinks",showLinks);
 
     return(
         <div className="footer">
 
             <div className="footer__top">
-                <div className="accordion" style={{borderBottom: showLinks ? 'none' : ''}}>
+                <div className="accordion" style={{borderBottom: showLinks ? 'none' : ''}} onClick={()=>setShowLinks(!showLinks)} >
                     <div className="accordion_bundle">
                         <span className="accordion__title">Wir empfehlen</span>
                         { showLinks && (
@@ -23,7 +25,7 @@ export default function Footer() {
                         )}
                     </div>
                     <div className="arrow_down">
-                        <img style={{transform: showLinks ? 'rotate(180deg)' : ''}} src="https://tui-b2c-static.imgix.net/icons/arrow_down.svg" onClick={()=>setShowLinks(!showLinks)} alt="arrow_down" />    
+                        <img style={{transform: showLinks ? 'rotate(180deg)' : ''}} src="https://tui-b2c-static.imgix.net/icons/arrow_down.svg" alt="arrow_down" />    
                     </div>
                 </div>
 

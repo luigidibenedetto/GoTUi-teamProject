@@ -15,7 +15,7 @@
         .accordion{
             display: flex;
             border-bottom: .5px solid #dce4e6;
-            border-top: .5px solid #dce4e6;
+            cursor: pointer;
 
             .accordion_bundle{
                 display: flex;
@@ -54,6 +54,7 @@
 
                 img{
                     cursor: pointer;
+                    margin-top: 20px;
                 }
             }
         }
@@ -162,6 +163,8 @@
             .accordion{
                 border-top: none;
                 margin-top: 20px;
+                cursor: default;
+                pointer-events: none;
 
                 .accordion_bundle{
 
