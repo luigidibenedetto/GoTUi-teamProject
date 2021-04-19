@@ -1,0 +1,142 @@
+
+.ActivityCard {
+  cursor: pointer;
+  min-width: 280px;
+  max-width: 281px;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px 0 rgb(35 35 35 / 15%);
+  
+  .card_cover {
+    height: 115px;
+    overflow: hidden;
+    position: relative;
+
+    .cover_label {
+      font-family: TUITypeLtBd, sans-serif;
+      font-size: 12px;
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      padding: 4px 10px;
+      background-color: #092a5e;
+      color: #fff;
+      text-transform: uppercase;
+      z-index: 10;
+    }
+    .cover_image-wrapper {
+      height: 115px;
+      background-color: #edf1f2;
+      
+      .image{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  .card_content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px 10px;
+    background-color: #fff;
+    justify-content: space-between;
+    height: 220px;
+    position: relative;
+
+    .content_label {
+      position: absolute;
+      top: -18px;
+      left: 15px;
+      font-family: TUITypeLtBd,"Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-size: 12px;
+      background-color: #092a5e;
+      color: #fff;
+      padding: 4px 11px;
+      white-space: nowrap;
+    }
+    .content_heading {
+      font-family: TUITypeLtBd,"Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-size: 16px;
+      //max-height: 60px;
+      overflow: hidden;
+      padding-bottom: 6px;
+
+      .heading_title {
+        color: #232323;
+        line-height: 20px;
+      }
+      .heading_description {
+        font-family: TUITypeLt,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 14px;
+        color: #626262;
+        max-height: 41px;
+        overflow: hidden;
+        line-height: 19px;
+        padding-top: 4px;
+      }
+    }
+    .content_cancellation {
+      font-family: TUITypeLt,"Helvetica Neue",Helvetica,Arial,sans-serif;
+      padding-bottom: 9px;
+      color: #69bc6b;
+      display: flex;
+      align-items: flex-end;
+
+      .cancellation_icon {
+        width: 17px;
+        height: 15px;
+        margin-right: 7px;
+      }
+    }
+    .content_languages {
+      padding-bottom: 10px;
+
+      .flags_basics_label {
+        font-family: TUITypeLt,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 14px;
+        color: #626262;
+        margin-right: 5px;
+      }
+      .flags_icon {
+        width: 17px;
+        height: 11px;
+        margin-right: 5px;
+      }
+    }
+    .content_bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      align-self: flex-end;
+      border-top: 1px solid #edf1f2;
+      padding-top: 3px;
+
+      .price-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        .price-prefix {
+          font-family: TUIType,"Helvetica Neue",Helvetica,Arial,sans-serif;
+          font-size: 14px;
+          color: #626262;
+          text-transform: capitalize;
+        }
+        .price {
+          font-family: TUITypeLtBd,"Helvetica Neue",Helvetica,Arial,sans-serif;
+          font-size: 20px;
+          color: #092a5e;
+          white-space: nowrap;
+        }
+      }
+    }
+
+  }
+  @media screen and (min-width: 1024px) {
+    box-shadow: 0 2px 10px 0 rgba(35,35,35,.15);
+    min-width: 318px;
+    max-width: 319px;
+    height: 395px;
+  }
+}
