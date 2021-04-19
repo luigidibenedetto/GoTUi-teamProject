@@ -1,7 +1,16 @@
+import DestinationCard from '../components/DestinationCard';
+import ActivityCard from '../components/ActivityCard';
+import VideoBlock from '../components/VideoBlock';
 import InfoBlock from '../components/InfoBlock'
+
 export default function HomePage() {
-    return <div>
-        		<h1>HomePage</h1>
-						<InfoBlock />
-			</div>
+    return (
+        <div className="Home">
+            <h1>HomePage</h1>
+            <DestinationCard />
+            <ActivityCard />
+            <VideoBlock/>
+            <InfoBlock />
+        </div>
+    );
 }
