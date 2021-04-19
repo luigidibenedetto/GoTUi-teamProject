@@ -1,0 +1,59 @@
+.image_p,
+.image_2SsFw {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero_overlay {
+  position: inherit;
+  left: 0;
+  top: 30%;
+  max-width: 100%;
+  margin-top: -150px;
+}
+
+.hero_overlay_text {
+  padding: 0 15px;
+}
+
+.hero_overlay_title {
+  color: #fff;
+  display: block;
+  text-transform: uppercase;
+  font-family: TUITypeLt, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 26px;
+}
+
+.hero_overlay_message {
+  font-family: TUITypeLt, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  color: #fff;
+  display: block;
+  margin-bottom: 20px;
+  margin-top: 3px;
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .hero_overlay {
+    padding: 0 15px;
+    display: flex;
+    position: absolute;
+    margin-top: 0;
+  }
+
+  .hero_overlay_text {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+  }
+
+  .hero_overlay_title {
+    font-family: TUIType, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 31px;
+  }
+}

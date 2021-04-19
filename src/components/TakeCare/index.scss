@@ -1,0 +1,52 @@
+.TakeCare {
+  max-width: 90%;
+  margin: auto;
+  padding: 42px 15px 47px;
+
+  a {
+    text-decoration: none;
+  }
+  
+}
+
+.banner_trusted {
+  max-width: 100%;
+  border-radius: 3px;
+  padding: 22px 16px;
+  border: 1px solid #70cbf4;
+  background-color: rgba(109, 173, 207, 0.1);
+  margin-bottom: 42px;
+  color: #092a5e;
+  display: grid;
+  grid-template-columns: 76px auto;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "logo title"
+    "content content";
+  grid-auto-flow: row;
+  grid-gap: 14px 12px;
+  gap: 14px 12px;
+}
+
+.banner_trusted__icon {
+  grid-area: logo;
+  height: 76px;
+  width: 76px;
+}
+
+.banner_trusted__title {
+  font-family: TUITypeLt, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  grid-area: title;
+  align-self: center;
+  font-weight: 700;
+}
+
+.banner_trusted__content {
+  grid-area: content;
+}
+
+.banner_trusted__content__moreinfo {
+  font-family: TUITypeLtBd, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
