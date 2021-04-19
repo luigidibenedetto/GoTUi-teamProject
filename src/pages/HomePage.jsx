@@ -1,6 +1,7 @@
 import DestinationCard from '../components/DestinationCard';
 import ActivityCard from '../components/ActivityCard';
 import VideoBlock from '../components/VideoBlock';
+import InfoBlock from '../components/InfoBlock'
 
 export default function HomePage() {
     return (
@@ -9,6 +10,7 @@ export default function HomePage() {
             <DestinationCard />
             <ActivityCard />
             <VideoBlock/>
+            <InfoBlock />
         </div>
     );
 }
