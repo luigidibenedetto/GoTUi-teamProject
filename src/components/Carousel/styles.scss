@@ -58,20 +58,8 @@ section {
       }
     }
   }
-}
 
-@media (min-width: 1024px) {
-  .topCities {
-    position: relative;
-    
-    .topCities__Carousel {
-      margin-bottom: 65px;
-      
-      .carousel__navigator {
-        width: 66px;
-      }
-    }
-  }
+ 
 }
 
 @media (min-width: 768px) {
@@ -128,8 +116,29 @@ section {
   }
 }
 
-@media (max-width: 768px) {
-  .icon {
-    display: none;
+@media (min-width: 1024px) {
+  .topCities {
+    position: relative;
+    
+    .topCities__Carousel {
+      margin-bottom: 65px;
+      
+      .carousel__navigator {
+        width: 66px;
+      }
+    }
   }
 }
+
+@media (max-width: 768px) {
+  .carousel__arrow {
+
+    .icon {
+      display: none;
+    }
+  }
+}
+
+
+
+

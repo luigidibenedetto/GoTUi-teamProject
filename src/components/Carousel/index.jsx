@@ -1,10 +1,8 @@
 import { useState, useRef } from "react"
-import DestinationCard from '../DestinationCard/index';
-import ActivityCard from '../ActivityCard/index';
 
 import "./styles.scss";
 
-function Carousel ({ title, cards, selection }) {
+function Carousel ({ title, cards, children }) {
 
   //const titleTopCities = "TOP DESTINATIONS"; //lingua variabile
   const widthCard = 334; //larghezza card + padding (318 + 16)
@@ -31,20 +29,7 @@ function Carousel ({ title, cards, selection }) {
         <div className="topCities__Carousel">
           <section className="carousel">
             <section className="carousel__slot" ref={ref}>
-              {cards.map((card) => (
-                <div className="top__city" key={card.id}>
-                
-                  {selection === "destination" && <DestinationCard destination={card} />}
-                  
-                  {selection === "activity" && <ActivityCard activity={card} />}
-                  
-                  {/*<section className="card">
-                    <div className="card__image">
-                      <img src={destination.image} alt=""/>  
-                    </div>
-                  </section>*/}
-                </div>
-              ))}
+              {children}
             </section>
 
             <div className={`carousel__navigator carousel__navigator__left ${posCities === 0 ? "carousel__navigator__disabled" : ""}`}>
@@ -68,5 +53,17 @@ function Carousel ({ title, cards, selection }) {
     </div>
   )
 }
+
+/*
+{cards.map((card) => (
+                <div className="top__city" key={card.id}>
+                
+                  {selection === "destination" && <DestinationCard destination={card} />}
+                  
+                  {selection === "activity" && <ActivityCard activity={card} />}
+                                    
+                  </div>
+                  ))}
+*/
 
 export default Carousel;

@@ -1,5 +1,6 @@
 .header {
     position: sticky;
+    //position: fixed;
     top:0;
     left: 0;
     padding: 0 15px;
@@ -24,7 +25,7 @@
     .header {
         justify-content:left;
         padding: 15px 35px;
-        height: 46px;
+        height: 77px;
     
         img {
             height: 35px;

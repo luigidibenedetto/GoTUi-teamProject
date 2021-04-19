@@ -6,21 +6,25 @@ $dark-grey: #232323;
 
 .DestinationCard {
   position: relative;
-  height: 200px;
-  width: 280px;
+  //height: 200px;
+  //width: 280px;
+  height: 100%;
+  width: 100%;
 
   font-family: TUITypeLtBd, sans-serif;
   font-size: 16px;
 
   background-color: aquamarine;
   cursor: pointer;
-  border-radius: 5px;
   box-shadow: 0 2px 8px 0 rgba(35,35,35,.15);
 
   .image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    overflow: hidden;
+    border-radius: 5px; 
+   
   }
 
   .info-wrapper {
@@ -45,9 +49,5 @@ $dark-grey: #232323;
     color: $dark-grey;
     padding: 4px 10px;
   }
-  @media screen and (min-width: 1024px) {
-    box-shadow: 0 2px 10px 0 rgba(35,35,35,.15);
-    min-width: 318px;
-    max-width: 319px;
-  }
+
 }
