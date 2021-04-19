@@ -1,3 +1,17 @@
+@font-face {
+  font-family: TUIType;
+  src: url('https://assets.musement.com/fonts/TUIType.woff') format('woff');
+}
+@font-face {
+  font-family: TUITypeLtBd;
+  src: url('https://assets.musement.com/fonts/TUITypeLtBd.woff') format('woff');
+}
+@font-face {
+  font-family: TUITypeLt;
+  src: url('https://assets.musement.com/fonts/TUITypeLt.woff') format('woff');
+}
 *{
-    box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }

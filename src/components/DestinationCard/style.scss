@@ -1,0 +1,48 @@
+$dark-blue: #092A5E;
+$grey: #737373;
+$dark-grey: #232323;
+
+
+
+.DestinationCard {
+  position: relative;
+  height: 200px;
+  width: 318px;
+
+  font-family: TUITypeLtBd, sans-serif;
+  font-size: 16px;
+
+  background-color: aquamarine;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px 0 rgba(35,35,35,.15);
+
+  .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .info-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    @media screen and (min-width: 1024px) {
+      left: 15px;
+      bottom: 15px;
+      }
+  }
+  .cityName {
+    background-color: $dark-blue;
+    color: #fff;
+    padding: 4px 10px;
+  }
+  .activityNum {
+    background-color: #fff;
+    color: $dark-grey;
+    padding: 4px 10px;
+  }
+}
