@@ -5,8 +5,6 @@ import { useState } from 'react';
 export default function Footer() {
     const mql = window.matchMedia('(min-width: 1024px)');
     const [showLinks, setShowLinks] = useState(mql.matches ? true : false);
-    console.log("mql.matches", mql.matches);
-    console.log("showLinks",showLinks);
 
     return(
         <div className="footer">
