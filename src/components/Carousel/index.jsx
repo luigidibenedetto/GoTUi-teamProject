@@ -54,16 +54,4 @@ function Carousel ({ title, cards, children }) {
   )
 }
 
-/*
-{cards.map((card) => (
-                <div className="top__city" key={card.id}>
-                
-                  {selection === "destination" && <DestinationCard destination={card} />}
-                  
-                  {selection === "activity" && <ActivityCard activity={card} />}
-                                    
-                  </div>
-                  ))}
-*/
-
 export default Carousel;
