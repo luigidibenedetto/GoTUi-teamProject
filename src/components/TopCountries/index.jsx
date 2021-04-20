@@ -1,56 +1,42 @@
 import { useState, useEffect } from 'react';
 import axios from "axios"
-import DestinationCard from '../DestinationCard/index';
-
+import TopDestinationsTab from "../TopDestinationsTab/index"
 import './style.scss'
 
-function TopCountries({ countries }) {
+function TopCountries() {
     const [active, setActive] = useState(0);
-    const [ aryCountries, setAryCountries ] = useState([]);
+    const [countriesList, setCountriesList] = useState([]);
+    const [loaded, setLoaded] = useState(false);
+    // const [countryCities, setCountryCities] = useState([]);
 
-    const TopCountries = countries.map((data, index) => (
+    const TopCountries = countriesList.map((data, index) => (
         < span className={`countries ${index === active ? "active" : ""}`} onClick={() => { setActive(index) }}> {data.name}</ span >
     ))
 
-    let prova;
+    const getCountriesList = async () => {
+        const { data: countriesList } = await axios.get('https://fe-tui-apiproxy.musement.com/top-countries')
+        setCountriesList(countriesList)
+    }
 
     useEffect(() => {
-        prova = countries.map((country) => {
-            getTopCountries(country.id)
-            console.log("COUNTRY", country)
-        })  
+        let newCountriesList = countriesList
+        newCountriesList.map(
+            (country) => {
+                axios.get(`https://fe-tui-apiproxy.musement.com/top-countries/${country.id}/cities?limit=8`)
+                    .then((response) => {
+                        (country.cities = response.data)
+                        setLoaded(true)
+                    }
+                    )
+            }
+        )
+        setCountriesList(newCountriesList)
+    }, [countriesList])
 
+    useEffect(() => {
+        getCountriesList();
 
-        async function getTopCountries(id) {
-            const {data : eightCountries} = await axios.get(`https://fe-tui-apiproxy.musement.com/top-countries/${id}/cities?limit=8`)
-            //const {data : aryCountries} = await axios.get(`https://fe-tui-apiproxy.musement.com/top-countries/161/cities?limit=8`)
-        
-            setAryCountries(...aryCountries, eightCountries);
-
-    }
-    
-    }, []);
-
-    setTimeout( 
-        console.log("PROVA", prova),
-        console.log("attivita spagna", aryCountries)
-    
-        , 3000);
-
-   
-
-  /*   const topDestinations = countries.map((data, index) => (
-        <div className={`destinationsWrap ${index === active ? "toShow" : ""}`}>
-            {(aryCountries.map((activity) =>
-                <div className="destinations">
-                    <DestinationCard destination={activity} />
-                </div>
-            ))}
-        </div>)
-    ); */
-    
-
-    
+    }, [])
 
     return (
         <div className={'TopCountriesContainer'}>
@@ -60,26 +46,12 @@ function TopCountries({ countries }) {
                     {TopCountries}
                 </div>
                 <div className={'TopDestinations'}>
-               
+                    {loaded && <TopDestinationsTab countriesList={countriesList} active={active} /> }
                 </div>
             </div >
         </div>
     );
 }
 
-{/*
-const topDestinations = countries.map((data, index) => (
-    <div className={`destinationsWrap ${index === active ? "toShow" : ""}`}>{(data.destinations.map((activity) =>
-        <div className="destinations">
-          <DestinationCard destination={activity} />
-        </div>
-        
-    ))}</div>)
-
-);
-
-  {topDestinations} 
-{topDestinations}
-    */}
 
 export default TopCountries;

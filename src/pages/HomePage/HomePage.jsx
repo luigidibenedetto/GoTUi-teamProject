@@ -13,38 +13,26 @@ import ActivityCard from '../../components/ActivityCard/index';
 
 import "./styles.scss"
 
-import { destinations, activities, countries } from "../../utils/static"
-
 export default function HomePage() {
 
-  const [ topCities, setTopCities ] = useState([]);
-  const [ topActivities, setTopActivities ] = useState([]);
-  const [ topCountries, setTopCountries ] = useState([]);
+  const [topCities, setTopCities] = useState([]);
+  const [topActivities, setTopActivities] = useState([]);
 
   const getTopCities = async () => {
-    const {data : topCities} = await axios.get('https://fe-tui-apiproxy.musement.com/top-cities?limit=10')
+    const { data: topCities } = await axios.get('https://fe-tui-apiproxy.musement.com/top-cities?limit=10')
     setTopCities(topCities)
   }
 
   const getTopActivities = async () => {
-    const {data : topActivities} = await axios.get('https://fe-tui-apiproxy.musement.com/top-activities?sort_by=-relevance&limit=10')
+    const { data: topActivities } = await axios.get('https://fe-tui-apiproxy.musement.com/top-activities?sort_by=-relevance&limit=10')
     setTopActivities(topActivities)
   }
-
-  const getTopCountries = async () => {
-    const {data : topCountries} = await axios.get('https://fe-tui-apiproxy.musement.com/top-countries')
-    setTopCountries(topCountries)
-  }
-
-    
-
 
   useEffect(() => {
     getTopCities();
     getTopActivities();
-    getTopCountries();
   }, []);
-    
+
   return (
     <div className="Home">
       <Hero />
@@ -69,7 +57,7 @@ export default function HomePage() {
         <VideoBlock />
         <InfoBlock />
       </div>
-      <TopCountries countries={topCountries} />
-		</div>
+      <TopCountries />
+    </div>
   );
 }
