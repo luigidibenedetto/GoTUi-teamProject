@@ -46,7 +46,7 @@
                 .accordion__title{
                     width: 100%;
                     @media (min-width: 1024px){
-                        font-size: 19px;
+                        font-size: 22px;
                     }
 
                     span{
@@ -61,7 +61,7 @@
                     flex-direction: column;
                     width: 100%;
                     margin-top:10px;
-                    @media(min-width:1024){
+                    @media (min-width: 1024px){
                         pointer-events: all;
                     }
         
