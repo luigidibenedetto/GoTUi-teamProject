@@ -17,6 +17,9 @@ body {
             display: flex;
             flex-direction: column;
             align-items: center;
+            .TopDestinations{
+                width:100%;
+            }
             .TopCountriesList {
                 display: flex;
                 flex-wrap: nowrap;
@@ -54,6 +57,7 @@ body {
             }
         }
     }
+    
 }
 
 @media (min-width: 768px) {

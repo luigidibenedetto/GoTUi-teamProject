@@ -1,8 +1,6 @@
 
 .ActivityCard {
   cursor: pointer;
-  //min-width: 280px;
-  //max-width: 281px;
   width: 100%;
 
   border-radius: 5px;
@@ -46,9 +44,13 @@
     padding: 20px 10px 10px;
     background-color: #fff;
     justify-content: space-between;
-    height: 220px;
+    height: 280px;
     position: relative;
 
+    @media(min-width:1024px){
+      height: 245px;
+      padding: 20px 13px 10px;
+    }
     .content_label {
       position: absolute;
       top: -18px;
