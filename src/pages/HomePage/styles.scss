@@ -1,0 +1,33 @@
+.Home {
+
+  .middleSection {
+    background-color: white;
+    padding: 40px 60px;
+  }
+  
+  .destination_slot {
+    height: 200px;
+    min-width: 280px;
+    border-radius: 5px;
+
+    @media screen and (min-width: 1024px) {
+      box-shadow: 0 2px 10px 0 rgba(35,35,35,.15);
+      min-width: 318px;
+      max-width: 319px;
+    }
+  }
+
+  .activity_slot {
+    min-width: 280px;
+    max-width: 281px;
+
+    @media screen and (min-width: 1024px) {
+      box-shadow: 0 2px 10px 0 rgba(35,35,35,.15);
+      min-width: 318px;
+      max-width: 319px;
+      
+      height: 395px;
+    }
+  
+  }
+}
