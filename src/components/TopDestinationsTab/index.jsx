@@ -1,22 +1,19 @@
 import DestinationCard from '../DestinationCard/index' 
  
-function TopDestinationsTab({ countriesList, active }) {
+function TopDestinationsTab({ countryCities, active }) {
     
     return (
-        
-            countriesList.map((country, index) =>
-            (
+        <div className='TopDestinationTab'>
+            {countryCities.map((country, index) =>(
             <div className={`destinationsWrap ${index === active ? "toShow" : ""}`}>
-                {(country.cities).map(
+                {country.map(
                     (prova) =>
                     <div className="destinations">
                         <DestinationCard destination={prova} />
                     </div>
                 )}
-            </div>
-            )
-            )
-        
+            </div>))}
+        </div>
         );
     }
 

@@ -6,8 +6,7 @@ import './style.scss'
 function TopCountries() {
     const [active, setActive] = useState(0);
     const [countriesList, setCountriesList] = useState([]);
-    const [loaded, setLoaded] = useState(false);
-    // const [countryCities, setCountryCities] = useState([]);
+    const [countryCities, setCountryCities] = useState([]);
 
     const TopCountries = countriesList.map((data, index) => (
         < span className={`countries ${index === active ? "active" : ""}`} onClick={() => { setActive(index) }}> {data.name}</ span >
@@ -19,18 +18,14 @@ function TopCountries() {
     }
 
     useEffect(() => {
-        let newCountriesList = countriesList
-        newCountriesList.map(
+        Promise.all(countriesList.map(
             (country) => {
-                axios.get(`https://fe-tui-apiproxy.musement.com/top-countries/${country.id}/cities?limit=8`)
-                    .then((response) => {
-                        (country.cities = response.data)
-                        setLoaded(true)
-                    }
-                    )
-            }
-        )
-        setCountriesList(newCountriesList)
+               return axios.get(`https://fe-tui-apiproxy.musement.com/top-countries/${country.id}/cities?limit=8`)
+            })
+        ).then((responses) => {
+            const arrayCities= responses.map((response)=> response.data )
+            setCountryCities(arrayCities)
+                    });
     }, [countriesList])
 
     useEffect(() => {
@@ -46,7 +41,7 @@ function TopCountries() {
                     {TopCountries}
                 </div>
                 <div className={'TopDestinations'}>
-                    {loaded && <TopDestinationsTab countriesList={countriesList} active={active} /> }
+                    {countryCities.length && <TopDestinationsTab countryCities={countryCities} active={active} /> }
                 </div>
             </div >
         </div>
