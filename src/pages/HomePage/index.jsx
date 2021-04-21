@@ -8,7 +8,7 @@ import InfoBlock from '../../components/InfoBlock'
 import DestinationCard from '../../components/DestinationCard/index';
 import ActivityCard from '../../components/ActivityCard/index';
 
-import "./styles.scss"
+import "./style.scss"
 
 import { destinations, activities, countries } from "../../utils/static"
 
