@@ -1,9 +1,9 @@
 import './App.css';
-import HomePage from './pages/HomePage';
-import DestinationPage from './pages/DestinationPage';
-import ActivityPage from './pages/ActivityPage';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import HomePage from './pages/HomePage'
+import DestinationPage from './pages/DestinationPage'
+import ActivityPage from './pages/ActivityPage'
+import Header from './components/Header'
+import Footer from './components/Footer'
 import {
   BrowserRouter as Router,
   Switch,

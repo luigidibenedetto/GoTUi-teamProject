@@ -1,20 +1,20 @@
 import './style.scss';
 
-function DestinationCard() {
+function DestinationCard({ destination }) {
   return (
   <div className="DestinationCard">
 
       <div className="image">
         <img 
         className="image"
-        src="https://images.musement.com/cover/0003/14/kos-xl-jpg_header-213784.jpeg?q=70&fit=crop&auto=format&w=280&h=286.70001220703125"
+        src={destination.image}
         alt="city"
         />
       </div>
 
     <section className="info-wrapper">
-      <span className="cityName">Città, Nazione</span>
-      <span className="activityNum">21 attività</span>
+      <span className="cityName">{destination.name}</span>
+      <span className="activityNum">{destination.activity}</span>
     </section>
   </div>
 )
