@@ -19,6 +19,7 @@ body {
             align-items: center;
             .TopDestinations{
                 width:100%;
+
             }
             .TopCountriesList {
                 display: flex;
@@ -45,7 +46,7 @@ body {
                 .destinations {
                     margin-bottom: 15px;
                     height: 90px;
-                    width: 318px;
+                    width: 100%;
                     background-color: rgba(92, 88, 92, 0.133);
                     border-radius: 10px;
                     font-family: TUITypeLtBd, "Helvetica Neue", Helvetica, Arial, sans-serif;
