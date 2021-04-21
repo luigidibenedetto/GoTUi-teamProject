@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios"
+import { useSelector } from "react-redux";
 
 import Hero from '../../components/Hero'
 import TakeCare from '../../components/TakeCare'
@@ -17,12 +18,15 @@ export default function HomePage() {
 
   const [topCities, setTopCities] = useState([]);
   const [topActivities, setTopActivities] = useState([]);
-
+  
+  const language = useSelector(state => state.language);
+  const currency = useSelector(state => state.currency);
+  
   const getTopCities = async () => {
     const { data: topCities } = await axios.get('https://fe-tui-apiproxy.musement.com/top-cities?limit=10', {
       headers: {
-        'Accept-Language': 'en-GB'
-         //'x-musement-currency': 'GBP'
+        'Accept-Language': `${language}`,
+        'x-musement-currency': `${currency}`,
       }
     })
     setTopCities(topCities)
@@ -31,8 +35,8 @@ export default function HomePage() {
   const getTopActivities = async () => {
     const { data: topActivities } = await axios.get('https://fe-tui-apiproxy.musement.com/top-activities?sort_by=-relevance&limit=10', {
       headers: {
-        'Accept-Language': 'en-GB'
-         //'x-musement-currency': 'GBP'
+        'Accept-Language': `${language}`,
+        'x-musement-currency': `${currency}`,
       }
     })
     setTopActivities(topActivities)

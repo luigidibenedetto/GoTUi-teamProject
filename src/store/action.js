@@ -1,11 +1,11 @@
 import { SELECT_LANGUAGE, SELECT_CURRENCY } from './constants';
 
-// export const changeCurrency = () => {
-//   return (dispatch) => {
-//     dispatch({type: SELECT_CURRENCY, payload: "PIPPO"})
-// }
-
-export const changeCurrency = () => ({
-  type: SELECT_CURRENCY,  payload: "PIPPO"
+export const changeLanguage = () => ({
+  type: SELECT_LANGUAGE,  payload: "fr-FR"
 })
+
+export const changeCurrency = (currency) => ({
+  type: SELECT_CURRENCY,  payload: currency
+})
+  
   

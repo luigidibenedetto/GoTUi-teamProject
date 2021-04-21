@@ -3,5 +3,5 @@ export const SELECT_CURRENCY = "SELECT_CURRENCY";
 
 export const defaultStore = {
   currency : "GBP",
-  language : "en-GB"
+  language : "en-GB",
 };

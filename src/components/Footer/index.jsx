@@ -1,9 +1,9 @@
 import logo from './../../Assets/images/logo.svg';
 import { useState, useEffect } from 'react';
 import axios from "axios"
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
-import { changeCurrency } from "../../store/action"
+import { changeLanguage, changeCurrency } from "../../store/action"
 import { Languages } from "../../utils/static";
 
 
@@ -15,7 +15,14 @@ export default function Footer() {
     const [ currencies, setCurrencies ] = useState([]);
 
     const dispatch = useDispatch()
-    const currency = useSelector(state => state.currency)
+ 
+    function onChangeLanguage () {
+        dispatch(changeLanguage()) 
+    }
+
+    function onChangeCurrency (currency) {
+        dispatch(changeCurrency(currency)) 
+    }
 
     const getCurrencies = async () => {
         const { data: currencies } = await axios.get('https://fe-tui-apiproxy.musement.com/currencies', {
@@ -28,7 +35,6 @@ export default function Footer() {
 
     useEffect(() => {
         getCurrencies();
-        
     }, []);
   
     let aryLanguages = [];
@@ -65,9 +71,9 @@ export default function Footer() {
 
                     <div className="dropdown">
                         <label htmlFor="language" className="dropdown__label">Sprache:</label> 
-                        <select id="language" className="dropdown__select">
-                            {aryLanguages.map((language) => (
-                                <option value={language.TEXT} key={language.CURRENCY}>
+                        <select id="language" className="dropdown__select" onChange={() => onChangeLanguage()}>
+                            {aryLanguages.map((language, index) => (
+                                <option value={language.TEXT} key={index}>
                                     {language}
                                 </option>
                             ))}
@@ -76,7 +82,7 @@ export default function Footer() {
 
                     <div className="dropdown">
                         <label htmlFor="currency" className="dropdown__label">Währung:</label> 
-                        <select id="currency" className="dropdown__select" onChange={changeCurrency}>
+                        <select id="currency" className="dropdown__select" onChange={(e) => onChangeCurrency(e.target.value)}>
                             {currencies.map((currency) => (
                                 <option value={currency.code} key={currency.code}>
                                     {currency.name}
