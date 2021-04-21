@@ -1,6 +1,6 @@
 import { useState, useRef } from "react"
 
-import "./styles.scss";
+import "./style.scss";
 
 function Carousel ({ title, cards, children }) {
 

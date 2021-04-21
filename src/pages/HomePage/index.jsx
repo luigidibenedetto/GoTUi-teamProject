@@ -11,7 +11,7 @@ import InfoBlock from '../../components/InfoBlock'
 import DestinationCard from '../../components/DestinationCard/index';
 import ActivityCard from '../../components/ActivityCard/index';
 
-import "./styles.scss"
+import "./style.scss"
 
 export default function HomePage() {
 
@@ -19,12 +19,22 @@ export default function HomePage() {
   const [topActivities, setTopActivities] = useState([]);
 
   const getTopCities = async () => {
-    const { data: topCities } = await axios.get('https://fe-tui-apiproxy.musement.com/top-cities?limit=10')
+    const { data: topCities } = await axios.get('https://fe-tui-apiproxy.musement.com/top-cities?limit=10', {
+      headers: {
+        'Accept-Language': 'en-GB'
+         //'x-musement-currency': 'GBP'
+      }
+    })
     setTopCities(topCities)
   }
 
   const getTopActivities = async () => {
-    const { data: topActivities } = await axios.get('https://fe-tui-apiproxy.musement.com/top-activities?sort_by=-relevance&limit=10')
+    const { data: topActivities } = await axios.get('https://fe-tui-apiproxy.musement.com/top-activities?sort_by=-relevance&limit=10', {
+      headers: {
+        'Accept-Language': 'en-GB'
+         //'x-musement-currency': 'GBP'
+      }
+    })
     setTopActivities(topActivities)
   }
 
