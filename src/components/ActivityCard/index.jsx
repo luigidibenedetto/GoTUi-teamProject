@@ -10,7 +10,7 @@ function ActivityCard({ activity }) {
       <div className="cover_image-wrapper">
         <img 
           className="image"
-          src={activity.image}
+          src={activity.cover_image_url}
           alt="city"
         />
       </div>
@@ -20,8 +20,8 @@ function ActivityCard({ activity }) {
       <span className="content_label">TUI COLLECTION</span>
 
       <section className="content_heading">
-        <h3 className="heading_title">{activity.name}</h3>
-        <p className="heading_description">{activity.activity}</p>
+        <h3 className="heading_title">{activity.title}</h3>
+        <p className="heading_description">{activity.description}</p>
       </section>
 
       <section>
@@ -49,7 +49,7 @@ function ActivityCard({ activity }) {
           <div className="price-wrapper">
             <span className="price-prefix">A partire da:</span>
             <div>
-              <span className="price">€ 59,00</span>
+              <span className="price">{activity.retail_price.formatted_value}</span>
             </div>
           </div>
         </section>
