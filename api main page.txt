@@ -1,0 +1,19 @@
+API UTILI:
+- TOP (10) ACTIVITIES - SORT BY RELEVANCE: https://fe-tui-apiproxy.musement.com/top-activities?sort_by=-relevance&limit=10
+- TOP (10) CITIES -  https://fe-tui-apiproxy.musement.com/top-cities?limit=10
+- TOP (5) COUNTRIES - https://fe-tui-apiproxy.musement.com/top-countries?limit=5
+- top countries/cities spagna (8) - https://fe-tui-apiproxy.musement.com/top-countries/161/cities?limit=8
+- top 8 cities grecia - https://fe-tui-apiproxy.musement.com/top-countries/66/cities?limit=8
+
+Per i seguenti link:
+https://fe-tui-apiproxy.musement.com/top-countries/177/cities?limit=8
+https://fe-tui-apiproxy.musement.com/top-countries/64/cities?limit=8
+https://fe-tui-apiproxy.musement.com/top-countries/52/cities?limit=8
+
+ricevo: 
+{
+"error": {
+"statusCode": 404,
+"statusText": "No cities found"
+}
+}
