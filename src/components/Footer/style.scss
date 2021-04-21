@@ -105,6 +105,11 @@
                 margin-right: 60px;
                 max-width: 280px;
             }
+            span{
+                @media (min-width: 1024px){
+                    font-size: 22px;
+                }
+            }
         }
         
         span{
