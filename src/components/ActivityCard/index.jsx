@@ -4,9 +4,9 @@ function ActivityCard({ activity }) {
   return (
   <div 
   className="ActivityCard">
-    {console.log("ACTIVITY:", activity)}
+    
     <div className="card_cover">
-      
+     
       <span className="cover_label">{(activity.categories[0].name === "TUI collection" || activity.categories[0].name === "PLUS") 
         ? activity.categories[1].name 
         : activity.categories[0].name}
@@ -44,11 +44,15 @@ function ActivityCard({ activity }) {
 
         <div className="content_languages">
           <span className="flags_basics_label">A disposizione:</span>
-          <img 
-            className="flags_icon" 
-            src="https://tui-b2c-static.imgix.net/icons/lang_de.svg" 
-            alt="tedesco"
-            />
+          {activity.languages.map((flag) => (
+             <img 
+             className="flags_icon" 
+             src={`https://tui-b2c-static.imgix.net/icons/lang_${flag.code}.svg`}
+             alt={flag.name}
+             key={flag.code}
+             />
+          ))}
+          
         </div>
 
         <section className="content_bottom">

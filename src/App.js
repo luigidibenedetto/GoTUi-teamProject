@@ -10,8 +10,12 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function App() {
+
+  const defaultPath = useSelector(state => state.path);
+
   return (
     <Router>
       <div className="App">
@@ -27,7 +31,7 @@ function App() {
             <HomePage />
           </Route>
           <Route path="/">
-            <Redirect to="/en" />
+            <Redirect to={defaultPath} />
           </Route>
         </Switch>
         <Footer />

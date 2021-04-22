@@ -1,9 +1,9 @@
 import logo from './../../Assets/images/logo.svg';
 import { useState, useEffect } from 'react';
 import axios from "axios"
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-import { changeLanguage, changeCurrency } from "../../store/action"
+import { changeCurrency } from "../../store/action"
 import { Languages } from "../../utils/static";
 
 
@@ -14,20 +14,24 @@ export default function Footer() {
     const [showLinks, setShowLinks] = useState(mql.matches ? true : false);
     const [ currencies, setCurrencies ] = useState([]);
 
+    const codeLanguage = useSelector(state => state.language);
+    const codeCurrency = useSelector(state => state.currency);
+
     const dispatch = useDispatch()
  
-    function onChangeLanguage () {
-        dispatch(changeLanguage()) 
+    function onChangeLanguage (language) {
+        window.location.href = "/" + Languages.find((codeLanguage) => (language === (codeLanguage.LANGUAGE))).CODE
     }
 
     function onChangeCurrency (currency) {
         dispatch(changeCurrency(currency)) 
+        window.localStorage.setItem("GoTUI-Currency", currency)
     }
 
     const getCurrencies = async () => {
         const { data: currencies } = await axios.get('https://fe-tui-apiproxy.musement.com/currencies', {
         headers: {
-            'Accept-Language': 'en-GB'
+            'Accept-Language': `${codeLanguage}`,
         }
         })
         setCurrencies(currencies)
@@ -35,16 +39,9 @@ export default function Footer() {
 
     useEffect(() => {
         getCurrencies();
-    }, []);
-  
-    let aryLanguages = [];
-    function Language () {
-        for (const key in Languages) {
-            aryLanguages.push(Languages[key].TEXT)  
-       }
-    }
-    Language()
-  
+        // eslint-disable-next-line react-hooks/exhaustive-deps 
+    }, [codeLanguage, codeCurrency]);
+    
     return(
         <div className="footer">
 
@@ -71,10 +68,10 @@ export default function Footer() {
 
                     <div className="dropdown">
                         <label htmlFor="language" className="dropdown__label">Sprache:</label> 
-                        <select id="language" className="dropdown__select" onChange={() => onChangeLanguage()}>
-                            {aryLanguages.map((language, index) => (
-                                <option value={language.TEXT} key={index}>
-                                    {language}
+                        <select id="language" className="dropdown__select" onChange={(e) => onChangeLanguage(e.target.value)}>
+                            {Languages.map((language, index) => (
+                                <option value={language.LANGUAGE} key={index} selected={window.location.pathname === ("/" + language.CODE) ? "selected" : ""}>
+                                    {language.TEXT}
                                 </option>
                             ))}
                         </select>
@@ -84,7 +81,7 @@ export default function Footer() {
                         <label htmlFor="currency" className="dropdown__label">Währung:</label> 
                         <select id="currency" className="dropdown__select" onChange={(e) => onChangeCurrency(e.target.value)}>
                             {currencies.map((currency) => (
-                                <option value={currency.code} key={currency.code}>
+                                <option value={currency.code} key={currency.code} selected={window.localStorage.getItem("GoTUI-Currency") === currency.code ? "selected" : ""}>
                                     {currency.name}
                                 </option>
                             ))}
