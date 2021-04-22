@@ -48,6 +48,7 @@
     display: flex;
     position: absolute;
     margin-top: 0;
+    top: 22%;
   }
 
   .hero_overlay_text {
@@ -61,5 +62,11 @@
   .hero_overlay_title {
     font-family: TUIType, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 31px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero_overlay {
+    top: 35%;
   }
 }

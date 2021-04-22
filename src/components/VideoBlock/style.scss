@@ -2,6 +2,8 @@
   display: block;
   box-sizing: border-box;
   background-color: #fff;
+  max-width: 1440px;
+  margin: auto;
 }
 
 .home__benefits__content {
@@ -9,7 +11,7 @@
   margin: 0 auto;
   padding: 30px 15px;
 
-  @media(min-width:1024){
+  @media (min-width: 1024) {
     padding: 40px 60px;
   }
 }
@@ -46,8 +48,8 @@
   height: 180px;
   width: 100%;
   margin-top: 30px;
-  
-  @media(min-width:1024){
+
+  @media (min-width: 1024) {
     height: 350px;
   }
 }

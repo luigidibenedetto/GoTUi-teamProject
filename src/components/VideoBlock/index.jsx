@@ -1,19 +1,19 @@
-import './index.scss';
+import './style.scss';
 
 function VideoBlock() {
-    return <section class="home__benefits">
-                <section class="home__benefits__content">
-                    <div class="home__benefits__content__section">
-                        <div class="benefits">
-                            <h2 class="title__h2">
+    return <section className="home__benefits">
+                <section className="home__benefits__content">
+                    <div className="home__benefits__content__section">
+                        <div className="benefits">
+                            <h2 className="title__h2">
                             Travel inspiration
                             </h2>
-                        <span class="benefits__subtitle">
+                        <span className="benefits__subtitle">
                              With TUI, the world is at your feet
                         </span>
-                        <div class="benefits__video">
-                            <div class="benefits__embed">
-                                <video controls="controls" preload="metadata" class="video">
+                        <div className="benefits__video">
+                            <div className="benefits__embed">
+                                <video controls="controls" preload="metadata" className="video">
                                     <source src="https://tui-b2c-static.imgix.net/videos/TUI_Collection_Experiences+UK.mp4" type="video/mp4" />
                                 </video>
                             </div>

@@ -1,4 +1,4 @@
-import './index.scss';
+import './style.scss';
 
 function TakeCare() {
     return <div className='TakeCare'>

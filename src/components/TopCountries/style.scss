@@ -1,142 +1,141 @@
 body {
-    background-color: #f2f5f6;
-    box-sizing: border-box;
-    h2 {
-        margin: 0;
-        text-align: center;
-        font-size: 22px;
-        line-height: 26px;
-        font-family: TUITypeLtBd, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    }
-    .TopCountriesContainer {
-        max-width: 1440px;
-        margin: auto;
-        padding: 42px 15px 227px;
-        text-align: center;
-        .TabWrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            .TopDestinations{
-                width:100%;
-
-            }
-            .TopCountriesList {
-                display: flex;
-                flex-wrap: nowrap;
-                overflow-x: scroll;
-                scroll-behavior: smooth;
-                margin: 20px;
-                .countries {
-                    cursor: pointer;
-                    padding: 15px;
-                    border-bottom: 1px solid #dce4e6;
-                    font-family: TUITypeLtBd, "Helvetica Neue", Helvetica, Arial, sans-serif;
-                    font-size: 14px;
-                    color: #626262;
-                }
-
-                .active {
-                    border-bottom: 5px solid #70cbf4;
-                    color: #000;
-                }
-            }
-            .destinationsWrap {
-                display: none;
-                .destinations {
-                    margin-bottom: 15px;
-                    height: 90px;
-                    width: 100%;
-                    background-color: rgba(92, 88, 92, 0.133);
-                    border-radius: 10px;
-                    font-family: TUITypeLtBd, "Helvetica Neue", Helvetica, Arial, sans-serif;
-                    font-size: 16px;
-                }
-            }
-            .toShow {
-                display: block;
-            }
+  background-color: #f2f5f6;
+  box-sizing: border-box;
+  h2 {
+    margin: 0;
+    text-align: center;
+    font-size: 22px;
+    line-height: 26px;
+    font-family: TUITypeLtBd, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  .TopCountriesContainer {
+    max-width: 1440px;
+    margin: auto;
+    padding: 42px 15px 227px;
+    text-align: center;
+    .TabWrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .TopDestinations {
+        width: 100%;
+      }
+      .TopCountriesList {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: hidden;
+        margin: 20px;
+        .countries {
+          cursor: pointer;
+          padding: 15px;
+          border-bottom: 1px solid #dce4e6;
+          font-family: TUITypeLtBd, "Helvetica Neue", Helvetica, Arial,
+            sans-serif;
+          font-size: 14px;
+          color: #626262;
         }
+
+        .active {
+          border-bottom: 5px solid #70cbf4;
+          color: #000;
+        }
+      }
+      .destinationsWrap {
+        display: none;
+        .destinations {
+          margin-bottom: 15px;
+          height: 90px;
+          width: 100%;
+          background-color: rgba(92, 88, 92, 0.133);
+          border-radius: 10px;
+          font-family: TUITypeLtBd, "Helvetica Neue", Helvetica, Arial,
+            sans-serif;
+          font-size: 16px;
+        }
+      }
+      .toShow {
+        display: block;
+      }
     }
-    
+  }
 }
 
 @media (min-width: 768px) {
-    body {
-        h2 {
-            font-size: 26px;
-            line-height: 30px;
-        }
-        .TopCountriesContainer {
-            padding: 60px 15px 115px;
-            .TabWrapper {
-                .TopCountriesList {
-                    margin-bottom: 40px;
-                    .countries {
-                        padding: 17px 16px;
-                        font-size: 18px;
-                    }
-                }
-                .destinationsWrap {
-                    .destinations {
-                        margin-right: 15px;
-                        height: 110px;
-                        width: calc(50% - 8px);
-                    }
-                    :nth-child(2n) {
-                        margin-right: 0;
-                    }
-                }
-                .toShow {
-                    display: flex;
-                    flex-wrap: wrap;
-                }
-            }
-        }
+  body {
+    h2 {
+      font-size: 26px;
+      line-height: 30px;
     }
+    .TopCountriesContainer {
+      padding: 60px 15px 115px;
+      .TabWrapper {
+        .TopCountriesList {
+          margin-bottom: 40px;
+          .countries {
+            padding: 17px 16px;
+            font-size: 18px;
+          }
+        }
+        .destinationsWrap {
+          .destinations {
+            margin-right: 15px;
+            height: 110px;
+            width: calc(50% - 8px);
+          }
+          :nth-child(2n) {
+            margin-right: 0;
+          }
+        }
+        .toShow {
+          display: flex;
+          flex-wrap: wrap;
+        }
+      }
+    }
+  }
 }
 
 @media (min-width: 1024px) {
-    body {
-        h2 {
-            font-size: 26px;
-            line-height: 30px;
-        }
-        .TopCountriesContainer {
-            padding: 74px 60px 176px;
-            .TabWrapper {
-                .TopCountriesList {
-                    .countries {
-                        font-size: 20px;
-                    }
-                }
-                .destinationsWrap {
-                    .destinations {
-                        margin-right: 15px;
-                        margin-bottom: 10px;
-                        width: 318px;
-                        height: 154px;
-                        font-size: 16px;
-                    }
-                    :nth-child(3) {
-                        width: calc(100% - 666px);
-                        margin-right: 0;
-                    }
-                    :nth-child(5) {
-                        width: calc(100% - 666px);
-                    }
-                    :nth-child(6) {
-                        margin-right: 0;
-                    }
-                    :nth-child(7) {
-                        width: calc(50% - 8px);
-                    }
-                    :nth-child(8) {
-                        width: calc(50% - 8px);
-                        margin-right: 0;
-                    }
-                }
-            }
-        }
+  body {
+    h2 {
+      font-size: 26px;
+      line-height: 30px;
     }
+    .TopCountriesContainer {
+      padding: 74px 60px 176px;
+      .TabWrapper {
+        .TopCountriesList {
+          .countries {
+            font-size: 20px;
+          }
+        }
+        .destinationsWrap {
+          .destinations {
+            margin-right: 15px;
+            margin-bottom: 10px;
+            width: 318px;
+            height: 154px;
+            font-size: 16px;
+          }
+          :nth-child(3) {
+            width: calc(100% - 666px);
+            margin-right: 0;
+          }
+          :nth-child(5) {
+            width: calc(100% - 666px);
+          }
+          :nth-child(6) {
+            margin-right: 0;
+          }
+          :nth-child(7) {
+            width: calc(50% - 8px);
+          }
+          :nth-child(8) {
+            width: calc(50% - 8px);
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
 }
