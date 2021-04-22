@@ -7,14 +7,14 @@ function DestinationCard({ destination }) {
       <div className="image">
         <img 
         className="image"
-        src={destination.image}
+        src={destination.cover_image_url}
         alt="city"
         />
       </div>
 
     <section className="info-wrapper">
-      <span className="cityName">{destination.name}</span>
-      <span className="activityNum">{destination.activity}</span>
+      <span className="cityName">{`${destination.name}, ${destination.country.name}`}</span>
+      <span className="activityNum">{destination.event_count} attività</span>
     </section>
   </div>
 )
