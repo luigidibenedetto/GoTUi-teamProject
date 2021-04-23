@@ -25,7 +25,7 @@ function ActivityRelated() {
            Dies könnte Ihnen ebenfalls gefallen
           </h2>
           <section className="activity_related_carousel">
-            <Carousel cards={topActivities}>
+            <Carousel cards={topActivities} >
               {topActivities.map((card) => (
                 <div className="activity_slot">
                   <ActivityCard activity={card} />
