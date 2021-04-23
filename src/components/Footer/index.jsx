@@ -16,6 +16,7 @@ export default function Footer() {
 
     const codeLanguage = useSelector(state => state.language);
     const codeCurrency = useSelector(state => state.currency);
+    const codePath = useSelector(state => state.path);
 
     const dispatch = useDispatch()
  
@@ -40,7 +41,7 @@ export default function Footer() {
     useEffect(() => {
         getCurrencies();
         // eslint-disable-next-line react-hooks/exhaustive-deps 
-    }, [codeLanguage, codeCurrency]);
+    }, [codeLanguage, codeCurrency, codePath]);
     
     return(
         <div className="footer">
