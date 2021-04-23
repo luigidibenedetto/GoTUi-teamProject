@@ -1,5 +1,8 @@
-export default function ActivityPage() {
+import ActivityHero from '../components/ActivityHero'
+
+function ActivityPage() {
     return(
-        <h1>ActivityPage</h1>
+        <ActivityHero />
     );
 }
+export default ActivityPage;
