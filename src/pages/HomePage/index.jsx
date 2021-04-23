@@ -41,6 +41,7 @@ export default function HomePage() {
       headers: {
         'Accept-Language': `${lang}`,
         'x-musement-currency': `${currency}`,
+        'x-musement-version': "3.4.0",
       }
     })
     setTopActivities(topActivities)

@@ -6,7 +6,7 @@ function ActivityCard({ activity }) {
   className="ActivityCard">
     
     <div className="card_cover">
-     
+
       <span className="cover_label">{(activity.categories[0].name === "TUI collection" || activity.categories[0].name === "PLUS") 
         ? activity.categories[1].name 
         : activity.categories[0].name}
@@ -29,8 +29,10 @@ function ActivityCard({ activity }) {
         <h3 className="heading_title">{activity.title}</h3>
         <p className="heading_description">{activity.description}</p>
       </section>
-
+      
       <section>
+
+        {activity.free_cancellation && 
         <section className="content_cancellation">
           <div className="cancellation_icon">
             <img 
@@ -41,7 +43,9 @@ function ActivityCard({ activity }) {
           </div>
           <span>Cancellazione gratuita</span>
         </section>
+        } 
 
+        {activity.languages.length !== 0 && 
         <div className="content_languages">
           <span className="flags_basics_label">A disposizione:</span>
           {activity.languages.map((flag) => (
@@ -52,8 +56,8 @@ function ActivityCard({ activity }) {
              key={flag.code}
              />
           ))}
-          
         </div>
+        }
 
         <section className="content_bottom">
           <div className="price-wrapper">
@@ -63,6 +67,7 @@ function ActivityCard({ activity }) {
             </div>
           </div>
         </section>
+
       </section>
     </div>
   </div>
