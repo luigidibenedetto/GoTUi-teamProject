@@ -29,6 +29,7 @@ function ModalGallery({ isOpen, contentUuid, closeModal}) {
   useEffect(() => {
     if (contentUuid) {
       getActivitiesMedia();
+      setNumPage(1);
     }
     // eslint-disable-next-line
   }, [contentUuid]);
