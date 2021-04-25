@@ -3,7 +3,7 @@ import axios from "axios"
 
 import './style.scss';
 
-function ModalGallery({ isOpen, closeModal}) {
+function ModalGallery({ isOpen, contentUuid, closeModal}) {
 
   const [ activitiesMedia, setActivitiesMedia ] = useState([]);
   const [ numPage, setNumPage ] = useState(1);
@@ -20,20 +20,20 @@ function ModalGallery({ isOpen, closeModal}) {
   function fnScrollArrow(scrollOffset) {
     ref.current.scrollLeft += scrollOffset;
   }
-
-  //deve arrivare come props
-  const uuid = "47543853-76bc-4cbb-b4e1-4c2030f216f9"
   
   const getActivitiesMedia = async () => {
-    const { data: activitiesMedia } = await axios.get(`https://fe-tui-apiproxy.musement.com/activities/${uuid}/media`)
+    const { data: activitiesMedia } = await axios.get(`https://fe-tui-apiproxy.musement.com/activities/${contentUuid}/media`)
     setActivitiesMedia(activitiesMedia)
   }
 
   useEffect(() => {
-    getActivitiesMedia();
-  }, []);
+    if (contentUuid) {
+      getActivitiesMedia();
+    }
+    // eslint-disable-next-line
+  }, [contentUuid]);
 
-  return (
+  return (isOpen && 
     <div className="ModalGallery" >
       <div className="modal_overlay">
         <div className="modal_body">
