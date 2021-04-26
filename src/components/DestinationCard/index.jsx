@@ -3,7 +3,7 @@ import './style.scss';
 function DestinationCard({ destination }) {
   return (
   <div className="DestinationCard">
-
+      
       <div className="image">
         <img 
         className="image"

@@ -8,9 +8,14 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect,
 } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function App() {
+
+  const defaultPath = useSelector(state => state.path);
+
   return (
     <Router>
       <div className="App">
@@ -24,6 +29,9 @@ function App() {
           </Route>
           <Route path="/:lang">
             <HomePage />
+          </Route>
+          <Route path="/">
+            <Redirect to={defaultPath} />
           </Route>
         </Switch>
         <Footer />
