@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios"
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
 import Hero from '../../components/Hero'
 import TakeCare from '../../components/TakeCare'
@@ -14,24 +16,42 @@ import ActivityCard from '../../components/ActivityCard/index';
 import "./style.scss"
 
 export default function HomePage() {
+  let { lang } = useParams();
 
   const [topCities, setTopCities] = useState([]);
   const [topActivities, setTopActivities] = useState([]);
+  
+  const language = useSelector(state => state.language);
+  const currency = useSelector(state => state.currency);
 
+  lang = language; 
+  
   const getTopCities = async () => {
-    const { data: topCities } = await axios.get('https://fe-tui-apiproxy.musement.com/top-cities?limit=10')
+    const { data: topCities } = await axios.get('https://fe-tui-apiproxy.musement.com/top-cities?limit=10', {
+      headers: {
+        'Accept-Language': `${language}`,
+        'x-musement-currency': `${currency}`,
+      }
+    })
     setTopCities(topCities)
   }
 
   const getTopActivities = async () => {
-    const { data: topActivities } = await axios.get('https://fe-tui-apiproxy.musement.com/top-activities?sort_by=-relevance&limit=10')
+    const { data: topActivities } = await axios.get('https://fe-tui-apiproxy.musement.com/top-activities?sort_by=-relevance&limit=10', {
+      headers: {
+        'Accept-Language': `${lang}`,
+        'x-musement-currency': `${currency}`,
+        'x-musement-version': "3.4.0",
+      }
+    })
     setTopActivities(topActivities)
   }
 
   useEffect(() => {
     getTopCities();
     getTopActivities();
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lang, language, currency]);
 
   return (
     <div className="Home">

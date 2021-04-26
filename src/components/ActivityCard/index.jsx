@@ -6,7 +6,12 @@ function ActivityCard({ activity }) {
   className="ActivityCard">
     
     <div className="card_cover">
-      <span className="cover_label">Escursioni e tour giornalieri</span>
+
+      <span className="cover_label">{(activity.categories[0].name === "TUI collection" || activity.categories[0].name === "PLUS") 
+        ? activity.categories[1].name 
+        : activity.categories[0].name}
+      </span>
+
       <div className="cover_image-wrapper">
         <img 
           className="image"
@@ -17,14 +22,17 @@ function ActivityCard({ activity }) {
     </div>
 
     <div className="card_content">
-      <span className="content_label">TUI COLLECTION</span>
-
+      {(activity.categories[0].name === "TUI collection" || activity.categories[0].name === "PLUS") 
+        && <span className="content_label">{activity.categories[0].name}</span>}
+        
       <section className="content_heading">
         <h3 className="heading_title">{activity.title}</h3>
         <p className="heading_description">{activity.description}</p>
       </section>
-
+      
       <section>
+
+        {activity.free_cancellation && 
         <section className="content_cancellation">
           <div className="cancellation_icon">
             <img 
@@ -35,15 +43,21 @@ function ActivityCard({ activity }) {
           </div>
           <span>Cancellazione gratuita</span>
         </section>
+        } 
 
+        {activity.languages.length !== 0 && 
         <div className="content_languages">
           <span className="flags_basics_label">A disposizione:</span>
-          <img 
-            className="flags_icon" 
-            src="https://tui-b2c-static.imgix.net/icons/lang_de.svg" 
-            alt="tedesco"
-            />
+          {activity.languages.map((flag) => (
+             <img 
+             className="flags_icon" 
+             src={`https://tui-b2c-static.imgix.net/icons/lang_${flag.code}.svg`}
+             alt={flag.name}
+             key={flag.code}
+             />
+          ))}
         </div>
+        }
 
         <section className="content_bottom">
           <div className="price-wrapper">
@@ -53,6 +67,7 @@ function ActivityCard({ activity }) {
             </div>
           </div>
         </section>
+
       </section>
     </div>
   </div>
