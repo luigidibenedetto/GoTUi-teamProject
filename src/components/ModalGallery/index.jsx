@@ -1,11 +1,9 @@
 import { useState, useEffect, useRef } from "react";
-//import axios from "axios"
 
 import './style.scss';
 
 function ModalGallery({ activitiesMedia, isOpen, contentUuid, closeModal}) {
 
-  //const [ activitiesMedia, setActivitiesMedia ] = useState([]);
   const [ numPage, setNumPage ] = useState(1);
     
   const ref = useRef(null);
@@ -20,15 +18,9 @@ function ModalGallery({ activitiesMedia, isOpen, contentUuid, closeModal}) {
   function fnScrollArrow(scrollOffset) {
     ref.current.scrollLeft += scrollOffset;
   }
-  
-  // const getActivitiesMedia = async () => {
-  //   const { data: activitiesMedia } = await axios.get(`https://fe-tui-apiproxy.musement.com/activities/${contentUuid}/media`)
-  //   setActivitiesMedia(activitiesMedia)
-  // }
 
   useEffect(() => {
     if (contentUuid) {
-      //getActivitiesMedia();
       setNumPage(1);
     }
     // eslint-disable-next-line

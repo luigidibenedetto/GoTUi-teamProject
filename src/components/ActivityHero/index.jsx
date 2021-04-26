@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from "axios"
 
 import ModalGallery from '../ModalGallery'
@@ -7,16 +7,24 @@ import './style.scss';
 
 function ActivityHero({ contentUuid }) {
 
-  const widthPanel = window.innerWidth
+  const widthPanel = window.innerWidth - 28 //larghezza div - padding
 
   const [ activitiesMedia, setActivitiesMedia ] = useState([]);
   const [ photoInModal, setPhotoInModal ] = useState(null);
   const [ modalIsOpen, setModalIsOpen ] = useState(false);
   const [ active, setActive ] = useState(0);
 
+  const ref = useRef(null);
+
   const getActivitiesMedia = async () => {
     const { data: activitiesMedia } = await axios.get(`https://fe-tui-apiproxy.musement.com/activities/${contentUuid}/media`)
     setActivitiesMedia(activitiesMedia)
+  }
+
+  function fnScrollMouse () {
+    if (ref.current.scrollLeft % widthPanel === 0) {
+      setActive((ref.current.scrollLeft/widthPanel))
+    }
   }
 
   useEffect(() => {
@@ -90,7 +98,7 @@ function ActivityHero({ contentUuid }) {
       : <div className="hero_wrapper">
           <div className="hero_carousel">
             <section className="gallery">
-              <div className="gallery_carousel">
+              <div className="gallery_carousel" ref={ref} onScroll={() => fnScrollMouse()}>
                 {activitiesMedia.map((photo) => (
                   <picture className="image gallery_carousel_image" key={photo.id}>
                     <source 
@@ -126,8 +134,6 @@ function ActivityHero({ contentUuid }) {
             </section>
           
           </div>
-        
-
       </div>
       }
 

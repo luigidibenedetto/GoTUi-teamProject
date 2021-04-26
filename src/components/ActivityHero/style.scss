@@ -17,12 +17,6 @@
       @media (min-width: 1441px) {
         height: 600px;
       }
-
-      .image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
     }
     .hero_carousel {
       height: 200px;
@@ -69,6 +63,11 @@
           }
         }
       }
+    }
+    .image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 
