@@ -41,16 +41,16 @@ export default function HomePage() {
         <div className="top_section">
           <TakeCare />
           <Carousel title={"TOP DESTINATIONS"} cards={topCities}>
-            {topCities.map((card) => (
-              <div className="destination_slot">
+            {topCities.map((card, index) => (
+              <div className="destination_slot" key={index}>
                 <DestinationCard destination={card} />
               </div>
             ))}
           </Carousel>
 
           <Carousel title={"TOP ACTIVITIES"} cards={topActivities}>
-            {topActivities.map((card) => (
-              <div className="activity_slot">
+            {topActivities.map((card, index) => (
+              <div className="activity_slot" key={index}>
                 <ActivityCard activity={card} />
               </div>
             ))}
