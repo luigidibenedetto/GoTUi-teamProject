@@ -1,11 +1,21 @@
 .ActivityContentHead{
-    //row 3 e 4 to be deleted after mounting
+    //row 3, 4, 11, 15, 16  to be deleted after mounting
     min-height: 40vh;
     padding: 15px;
 
     background-color: white;
     font-family: TUIType,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 16px;
+
+    @media (min-width: 768px){ //activity_body_content
+        padding: 0 30px;
+    }
+
+    @media (min-width: 1024px) {  //activity_body_content
+        padding: 0 0 0 50px;
+        width: 100%;
+    }
+
 
     .categories, .categories__label {
         display: flex;
@@ -30,6 +40,9 @@
         margin: 3px 10px 3px 0;
         white-space: nowrap;
         height: 20px;
+        @media (min-width: 768px){
+            margin: 0 10px 0 0;
+        }
     }
 
     .tuiCategories_collection__label {
@@ -46,17 +59,42 @@
         justify-content: space-between;
         align-items: center;
         padding: 20px 0 10px;
+        @media (min-width: 1024px){
+            padding: 20px 0;
+        }
+        @media (min-width: 768px){
+            padding-top: 10px;
+            padding-bottom: 15px;
+        }
 
         .title__h1, .title__h2 {
             font-family: TUITypeLtBd,"Helvetica Neue",Helvetica,Arial,sans-serif;
             color: #232323;
             font-size: 24px;
             line-height: 28px;
+            @media (min-width: 1024px){
+                font-family: TUITypeLtBd,"Helvetica Neue",Helvetica,Arial,sans-serif;
+            }
+            @media (min-width: 1024px){
+                font-size: 32px;
+                line-height: 38px;
+            }
+            @media (min-width: 768px) {
+                font-family: TUITypeLtBd,"Helvetica Neue",Helvetica,Arial,sans-serif;
+            }
+            @media (min-width: 768px){
+                font-size: 28px;
+                line-height: 32px;
+            }
         }
     }
     
     .info {
         margin: 15px 0;
+
+        @media (min-width: 1024px){
+            margin: 20px 0;
+        }
 
         .info__container {
             display: flex;
@@ -72,7 +110,17 @@
                 color: #232323;
                 width: 100%;
                 padding: 15px 0;
-    
+                @media (min-width: 1024px){
+                    font-family: TUITypeLt,"Helvetica Neue",Helvetica,Arial,sans-serif;
+                    font-size: 20px;
+                    width: 50%;
+                    padding: 20px 10px 20px 0;
+                }
+                @media (min-width: 768px){
+                    font-family: TUITypeLt,"Helvetica Neue",Helvetica,Arial,sans-serif;
+                    font-size: 18px;
+                }
+
                 .free_cancellation_container {
                     display: flex;
                     align-items: flex-start;
@@ -93,11 +141,17 @@
                         color: #69bc6b;
                     }   
                 }
+
                 .info__container__row__icon{
                     width: 22px;
                     min-width: 22px;
                     height: 20px;
                     margin-right: 10px;
+                    @media (min-width: 768px){
+                        width: 24px;
+                        height: 22px;
+                        margin-right: 15px;
+                    }
 
                     .icon {
                         width: 100%;
@@ -113,6 +167,14 @@
                     font-family: TUIType,"Helvetica Neue",Helvetica,Arial,sans-serif;
                     font-size: 14px;
                     margin-right: 3px;
+                    @media (min-width: 1024px){
+                        font-family: TUIType,"Helvetica Neue",Helvetica,Arial,sans-serif;
+                        font-size: 20px;
+                    }
+                    @media (min-width: 768px){
+                        font-family: TUIType,"Helvetica Neue",Helvetica,Arial,sans-serif;
+                        font-size: 18px;
+                    }
                 }
            
             
@@ -130,6 +192,11 @@
                         min-width: 22px;
                         height: 20px;
                         margin-right: 10px;
+                        @media (min-width: 768px) {
+                            width: 24px;
+                            height: 22px;
+                            margin-right: 15px;
+                        }
         
                         .icon {
                             width: 100%;
@@ -146,6 +213,26 @@
         padding: 10px 0;
         border-radius: 10px;
         overflow: hidden;
+        @media (min-width: 1024px){
+            font-family: TUITypeLt,"Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 20px;
+            max-width:810px,
+        }
+        @media (min-width: 768px){
+            font-family: TUITypeLt,"Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 18px;
+        }
+
+        span:first-child{
+            @media (min-width: 1024px){
+            font-family: TUIType,"Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 20px;
+            }
+            @media (min-width: 768px){
+                font-family: TUIType,"Helvetica Neue",Helvetica,Arial,sans-serif;
+                font-size: 18px;
+            }
+        }
 
         .carousel {
             width: 100%;
@@ -167,6 +254,9 @@
                 margin: 0 0 -10px 0;
                 -ms-scroll-snap-type: x mandatory;
                 scroll-snap-type: x mandatory;
+                @media(min-width:1024px){
+                    overflow-x: hidden;
+                }
 
                 .features__box {
                     display: flex;
@@ -180,6 +270,17 @@
                         height: 28px;
                         width: 28px;
                         margin: 0 8px;
+                        @media (min-width: 1024px){
+                            min-width: 35px;
+                            height: 35px;
+                            width: 35px;
+                        }
+                        @media (min-width: 768px){
+                            min-width: 31px;
+                            height: 31px;
+                            width: 31px;
+                            margin: 0 10px;
+                        }
 
                         .icon {
                             width: 100%;
@@ -191,6 +292,10 @@
                         font-family: TUITypeLt,"Helvetica Neue",Helvetica,Arial,sans-serif;
                         font-size: 14px;
                         color: #232323;
+                        @media (min-width: 768px){
+                            font-family: TUITypeLt,"Helvetica Neue",Helvetica,Arial,sans-serif;
+                            font-size: 16px;
+                        }
                     }
                 }
             }
