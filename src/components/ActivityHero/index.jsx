@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios"
 
 import ModalGallery from '../ModalGallery'
 
@@ -8,8 +9,22 @@ function ActivityHero({ contentUuid }) {
 
   const widthPanel = window.innerWidth
 
-  const [photoInModal, setPhotoInModal] = useState(null);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [ activitiesMedia, setActivitiesMedia ] = useState([]);
+  const [ photoInModal, setPhotoInModal ] = useState(null);
+  const [ modalIsOpen, setModalIsOpen ] = useState(false);
+  const [ active, setActive ] = useState(0);
+
+  const getActivitiesMedia = async () => {
+    const { data: activitiesMedia } = await axios.get(`https://fe-tui-apiproxy.musement.com/activities/${contentUuid}/media`)
+    setActivitiesMedia(activitiesMedia)
+  }
+
+  useEffect(() => {
+    if (contentUuid) {
+      getActivitiesMedia();
+    }
+    // eslint-disable-next-line
+  }, [contentUuid]);
 
   function openPhotoModal(contentUuid) {
     setPhotoInModal(contentUuid);
@@ -76,32 +91,36 @@ function ActivityHero({ contentUuid }) {
           <div className="hero_carousel">
             <section className="gallery">
               <div className="gallery_carousel">
-                *
-                <picture className="image gallery_carousel_image">
-                  <source 
-                    media="(max-width:320px)"
-                    srcSet="https://images.musement.com/cover/0037/82/thumb_3681910_cover_header.jpeg?q=50&fit=crop&auto=format&w=320&h=200 1x, https://images.musement.com/cover/0037/82/thumb_3681910_cover_header.jpeg?q=50&fit=crop&auto=format&w=640&h=400 2x"
-                  />
-                  <source 
-                    media="(max-width:430px)"
-                    srcSet="https://images.musement.com/cover/0037/82/thumb_3681910_cover_header.jpeg?q=50&fit=crop&auto=format&w=430&h=268.75 1x, https://images.musement.com/cover/0037/82/thumb_3681910_cover_header.jpeg?q=50&fit=crop&auto=format&w=860&h=537.5 2x"
-                  />
-                  <source 
-                    media="(max-width:1024px)"
-                    srcSet="https://images.musement.com/cover/0037/82/thumb_3681910_cover_header.jpeg?q=50&fit=crop&auto=format&w=1024&h=400 1x, https://images.musement.com/cover/0037/82/thumb_3681910_cover_header.jpeg?q=50&fit=crop&auto=format&w=2048&h=800 2x"
-                  />
-                  <img
-                    className="image" alt="prova"
-                    src="https://images.musement.com/cover/0037/82/thumb_3681910_cover_header.jpeg?q=50&fit=crop&auto=format&w=1024&h=400"
-                  />
-                </picture>
+                {activitiesMedia.map((photo) => (
+                  <picture className="image gallery_carousel_image" key={photo.id}>
+                    <source 
+                      media="(max-width:320px)"
+                      srcSet={`${photo.url}?q=50&fit=crop&auto=format&w=320&h=200 1x, ${photo.url}?q=50&fit=crop&auto=format&w=640&h=400 2x`}
+                    />
+                    <source 
+                      media="(max-width:430px)"
+                      srcSet={`${photo.url}?q=50&fit=crop&auto=format&w=430&h=268.75 1x, ${photo.url}?q=50&fit=crop&auto=format&w=860&h=537.5 2x`}
+                    />
+                    <source 
+                      media="(max-width:1024px)"
+                      srcSet={`${photo.url}?q=50&fit=crop&auto=format&w=1024&h=400 1x, ${photo.url}?q=50&fit=crop&auto=format&w=2048&h=800 2x`}
+                    />
+                    <img
+                      className="image" 
+                      src={photo.url}
+                      alt={photo.title}
+                    />
+                  </picture>
+                ))}
+               
               </div>
 
               <div className="gallery_dots_box">
-                *
-                <div className="dot">
+                {activitiesMedia.map((photo, index) => (
+                  <div className={`dot ${index === active ? "dot__active" : ""}`} key={photo.id}>
 
-                </div>
+                  </div>
+                ))}
               </div>
 
             </section>
@@ -113,6 +132,7 @@ function ActivityHero({ contentUuid }) {
       }
 
       <ModalGallery
+        activitiesMedia={activitiesMedia}
         isOpen={modalIsOpen}
         contentUuid={photoInModal}
         closeModal={closeModal}
