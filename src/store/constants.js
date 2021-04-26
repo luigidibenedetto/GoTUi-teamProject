@@ -12,11 +12,14 @@ function CodeCurrency() {
 }
 
 function CodeLanguage() {
-  let valueLanguage = window.location.pathname
-  
-  const Path = Languages.map((element) => ("/" + element.CODE))
+  const aryPath = window.location.pathname.split("/");
+
+  let valueLanguage = aryPath[1]
+
+  const Path = Languages.map((element) => (element.CODE))
+
   if (Path.includes(valueLanguage)) {
-    valueLanguage = Languages.find((language) => (window.location.pathname === ("/" + language.CODE))).LANGUAGE
+    valueLanguage = Languages.find((language) => (aryPath[1] === (language.CODE))).LANGUAGE
   } else {
     valueLanguage = "en-GB"
     }
@@ -24,15 +27,18 @@ function CodeLanguage() {
 }
 
 function CodePath() {
-  let valuePath = window.location.pathname
+  const aryPath = window.location.pathname.split("/");
+  const Path = Languages.map((element) => (element.CODE))
+  
+  let valuePath = "";
 
-  const Path = Languages.map((element) => ("/" + element.CODE))
-  if (Path.includes(valuePath)) {
+ if (Path.includes(aryPath[1])) {
     valuePath = window.location.pathname
   } else {
+    aryPath[1] = "uk"
+    window.location.pathname = aryPath.join("/");
     valuePath = "/uk"
   }
-  //window.location.assign(valuePath);
   return valuePath
 }
 
