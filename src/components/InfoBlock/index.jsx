@@ -1,4 +1,4 @@
-import './index.scss';
+import './style.scss';
 
 function InfoBlock() {
     return <div className="benefits__content">

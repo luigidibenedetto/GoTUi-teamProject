@@ -55,29 +55,34 @@ export default function HomePage() {
 
   return (
     <div className="Home">
-      <Hero />
-      <TakeCare />
-      <Carousel title={"TOP DESTINATIONS"} cards={topCities}>
-        {topCities.map((card) => (
-          <div className="destination_slot" key={card.id}>
-            <DestinationCard destination={card} />
-          </div>
-        ))}
-      </Carousel>
+      <div className="Home_wrapper">
+        <Hero />
 
-      <Carousel title={"TOP ACTIVITIES"} cards={topActivities}>
-        {topActivities.map((card, index) => (
-          <div className="activity_slot" key={index}>
-            <ActivityCard activity={card} />
-          </div>
-        ))}
-      </Carousel>
+        <div className="top_section">
+          <TakeCare />
+          <Carousel title={"TOP DESTINATIONS"} cards={topCities}>
+            {topCities.map((card) => (
+              <div className="destination_slot">
+                <DestinationCard destination={card} />
+              </div>
+            ))}
+          </Carousel>
 
-      <div className="middleSection">
-        <VideoBlock />
-        <InfoBlock />
+          <Carousel title={"TOP ACTIVITIES"} cards={topActivities}>
+            {topActivities.map((card) => (
+              <div className="activity_slot">
+                <ActivityCard activity={card} />
+              </div>
+            ))}
+          </Carousel>
+        </div>
+
+        <div className="middle_section">
+          <VideoBlock />
+          <InfoBlock />
+        </div>
+        <TopCountries />
       </div>
-      <TopCountries />
     </div>
   );
 }

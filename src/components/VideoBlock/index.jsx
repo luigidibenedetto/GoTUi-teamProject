@@ -1,4 +1,4 @@
-import './index.scss';
+import './style.scss';
 
 function VideoBlock() {
     return <section className="home__benefits">

@@ -1,4 +1,4 @@
-import './index.scss';
+import './style.scss';
 
 function Hero() {
     return <div className='Hero'>
