@@ -1,4 +1,4 @@
-import { defaultStore, SELECT_CURRENCY } from './constants';
+import { defaultStore, SELECT_CURRENCY, SET_UUID } from './constants';
 
 function storeReducer(state = defaultStore, action) {
   switch(action.type) {
@@ -8,6 +8,11 @@ function storeReducer(state = defaultStore, action) {
             ...state,
             currency: action.payload
         }
+    case SET_UUID:
+      return {
+        ...state,
+        uuid: action.payload
+      }
 
     default :
         return state

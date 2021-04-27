@@ -5,8 +5,7 @@ import ModalGallery from '../ModalGallery'
 
 import './style.scss';
 
-function ActivityHero({ contentUuid }) {
-
+function ActivityHero({ uuid }) {
   const widthPanel = window.innerWidth - 28 //larghezza div - padding
 
   const [ activitiesMedia, setActivitiesMedia ] = useState([]);
@@ -17,7 +16,7 @@ function ActivityHero({ contentUuid }) {
   const ref = useRef(null);
 
   const getActivitiesMedia = async () => {
-    const { data: activitiesMedia } = await axios.get(`https://fe-tui-apiproxy.musement.com/activities/${contentUuid}/media`)
+    const { data: activitiesMedia } = await axios.get(`https://fe-tui-apiproxy.musement.com/activities/${uuid}/media`)
     setActivitiesMedia(activitiesMedia)
   }
 
@@ -28,14 +27,14 @@ function ActivityHero({ contentUuid }) {
   }
 
   useEffect(() => {
-    if (contentUuid) {
+    if (uuid) {
       getActivitiesMedia();
     }
     // eslint-disable-next-line
-  }, [contentUuid]);
+  }, [uuid]);
 
-  function openPhotoModal(contentUuid) {
-    setPhotoInModal(contentUuid);
+  function openPhotoModal(uuid) {
+    setPhotoInModal(uuid);
     setModalIsOpen(true);
   }
 
@@ -80,18 +79,18 @@ function ActivityHero({ contentUuid }) {
         </div>
 
         <section className="button_wrapper">
-          <button className="button" onClick={() => openPhotoModal(contentUuid)}>
-            <div className="button_icoBox">
-              <div className="icoBox_icon">
-                <img
-                  className="icon"
-                  src="https://tui-b2c-static.imgix.net/icons/gallery.svg"
-                  alt="prova"
-                />
+            {activitiesMedia.length !==0 && <button className="button" onClick={() => openPhotoModal(uuid)}>
+              <div className="button_icoBox">
+                <div className="icoBox_icon">
+                  <img
+                    className="icon"
+                    src="https://tui-b2c-static.imgix.net/icons/gallery.svg"
+                    alt="prova"
+                  />
+                </div>
+                <span>Fotos ansehen</span>
               </div>
-              <span>Fotos ansehen</span>
-            </div>
-          </button>
+            </button>}
         </section>
 
       </div>
@@ -140,7 +139,7 @@ function ActivityHero({ contentUuid }) {
       <ModalGallery
         activitiesMedia={activitiesMedia}
         isOpen={modalIsOpen}
-        contentUuid={photoInModal}
+        uuid={photoInModal}
         closeModal={closeModal}
       />
 

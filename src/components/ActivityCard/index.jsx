@@ -1,10 +1,19 @@
 import './style.scss';
+import { useDispatch } from 'react-redux'
+import { setUuid } from "../../store/action"
+
 
 function ActivityCard({ activity }) {
+  const dispatch = useDispatch()
+  
+  function onSetUuid(uuid) {
+    dispatch(setUuid(uuid))
+  }
   return (
-  <div 
-  className="ActivityCard">
     
+  <div 
+  className="ActivityCard" onClick={() => onSetUuid(activity.uuid)}>
+    <a href={`${window.document.URL}/${activity.url.split("/")[4]}/${activity.url.split("/")[5]}/`}>
     <div className="card_cover">
 
       <span className="cover_label">{(activity.categories[0].name === "TUI collection" || activity.categories[0].name === "PLUS") 
@@ -70,6 +79,7 @@ function ActivityCard({ activity }) {
 
       </section>
     </div>
+    </a>
   </div>
 )
 }
