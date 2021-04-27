@@ -18,6 +18,10 @@
     width: 100%;
   }
 
+  .content__fluid {
+    display: flex;
+  }
+
   .content__container,
   .content__fluid,
   .content__highlights {
@@ -140,11 +144,13 @@
         font-size: 20px;
       }
 
-      .readMore__btn__less {
+      .readMore__info__btn__less,
+      .readMore__description__btn__less {
         display: none;
       }
 
-      .readMore__btn__more {
+      .readMore__info__btn__more,
+      .readMore__description__btn__more {
         display: inline;
       }
     }
