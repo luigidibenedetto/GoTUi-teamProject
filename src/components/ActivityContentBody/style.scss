@@ -1,0 +1,197 @@
+.content {
+  padding: 15px;
+
+  background-color: white;
+  font-family: TUIType, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+
+  line-height: 23px;
+  letter-spacing: 0.1px;
+
+  @media (min-width: 768px) {
+    padding-bottom: 50px;
+    padding: 0 30px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0 0 0 50px;
+    width: 100%;
+  }
+
+  .content__container,
+  .content__fluid,
+  .content__highlights {
+    padding: 15px 0;
+    font-family: TUITypeLt, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+
+    @media (min-width: 768px) {
+      padding-top: 50px;
+      padding-bottom: 0;
+      font-family: TUITypeLt, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 18px;
+    }
+
+    @media (min-width: 1024px) {
+      font-family: TUITypeLt, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 20px;
+    }
+
+    .content__highlights__title {
+      padding-bottom: 10px;
+
+      @media (min-width: 768px) {
+        padding-bottom: 20px;
+      }
+    }
+
+    .list {
+      margin: 0;
+      padding: 0;
+
+      .list__row {
+        display: flex;
+        margin-top: 10px;
+
+        @media (min-width: 768px) {
+          margin-top: 20px;
+        }
+
+        .content__highlights__icon {
+          min-width: 7px;
+          width: 7px;
+          height: 7px;
+          margin-right: 10px;
+          border-radius: 50%;
+          background-color: #70cbf4;
+          margin-top: 10px;
+        }
+
+        .list__row__item {
+          font-family: TUITypeLt, "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-size: 16px;
+          color: #232323;
+
+          @media (min-width: 768px) {
+            font-family: TUITypeLt, "Helvetica Neue", Helvetica, Arial,
+              sans-serif;
+            font-size: 18px;
+            padding: 0;
+          }
+
+          @media (min-width: 1024px) {
+            font-family: TUITypeLt, "Helvetica Neue", Helvetica, Arial,
+              sans-serif;
+            font-size: 20px;
+          }
+        }
+      }
+
+      .list__row:first-child {
+        margin-top: 0;
+
+        @media (min-width: 768px) {
+          margin-top: 0;
+        }
+      }
+
+      .content__fluid__container__icon {
+        min-width: 14px;
+        width: 14px;
+        height: 13px;
+        margin-right: 10px;
+      }
+    }
+
+    .content__container__title {
+      padding-bottom: 10px;
+
+      @media (min-width: 768px) {
+        padding-bottom: 20px;
+      }
+    }
+
+    .readMore__trigger {
+      display: none;
+    }
+
+    .readMore__text {
+      margin-bottom: 10px;
+      max-height: 90px;
+      overflow: hidden;
+
+      @media (min-width: 768px) {
+        max-height: 94px;
+      }
+    }
+
+    .readMore__btn {
+      font-family: TUIType, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      cursor: pointer;
+      display: block;
+      font-style: italic;
+      text-decoration: underline;
+      color: #232323;
+
+      @media (min-width: 768px) {
+        font-family: TUIType, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 18px;
+      }
+
+      @media (min-width: 1024px) {
+        font-family: TUIType, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 20px;
+      }
+
+      .readMore__btn__less {
+        display: none;
+      }
+
+      .readMore__btn__more {
+        display: inline;
+      }
+    }
+
+    .content__fluid__container {
+      width: 100%;
+      padding-bottom: 30px;
+
+      @media (min-width: 768px) {
+        width: 50%;
+        padding: 0;
+      }
+
+      @media (min-width: 1024px) {
+        padding-right: 20px;
+      }
+
+      .content__fluid__container:last-child {
+        padding-bottom: 0;
+      }
+
+      .content__fluid__container:first-child {
+        padding-bottom: 0;
+
+        @media (min-width: 768px) {
+          padding-right: 20px;
+        }
+      }
+
+      .content__fluid__container__title {
+        padding-bottom: 10px;
+
+        @media (min-width: 768px) {
+          padding-bottom: 20px;
+        }
+      }
+    }
+
+    .content__fluid__container__title,
+    .content__highlights__title,
+    .content__container__title,
+    .refundPolicies__title {
+      text-align: left;
+    }
+  }
+}
