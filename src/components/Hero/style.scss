@@ -2,7 +2,7 @@
 .image_2SsFw {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 
@@ -15,7 +15,10 @@
 }
 
 .hero_overlay_text {
-  padding: 0 15px;
+  padding-top: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
 }
 
 .hero_overlay_title {
@@ -34,6 +37,9 @@
   margin-bottom: 20px;
   margin-top: 3px;
   font-weight: 700;
+  @media (min-width: 1024px) {
+    font-size: 26px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -42,6 +48,7 @@
     display: flex;
     position: absolute;
     margin-top: 0;
+    top: 22%;
   }
 
   .hero_overlay_text {
@@ -55,5 +62,11 @@
   .hero_overlay_title {
     font-family: TUIType, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 31px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero_overlay {
+    top: 35%;
   }
 }

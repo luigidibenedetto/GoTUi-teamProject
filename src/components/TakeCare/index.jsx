@@ -1,4 +1,4 @@
-import './index.scss';
+import './style.scss';
 
 function TakeCare() {
     return <div className='TakeCare'>
@@ -7,8 +7,8 @@ function TakeCare() {
                 <div className="banner_trusted__icon">
                     <div className="banner_trusted__icon">
                         <img src="https://tui-b2c-static.imgix.net/icons/trusted_tui.svg" alt="trusted tui" title="" loading="lazy" className="icon" />
-                        </div>
                     </div>
+                </div>
                 <div className="banner_trusted__title">
                     TUI TAKES CARE OF YOU
                 </div>

@@ -1,7 +1,7 @@
 .TakeCare {
-  max-width: 90%;
-  margin: auto;
-  padding: 42px 15px 47px;
+  // max-width: 90%;
+  // margin: auto;
+  // padding: 42px 15px 47px;
 
   a {
     text-decoration: none;
@@ -14,7 +14,7 @@
   border-radius: 3px;
   padding: 22px 16px;
   border: 1px solid #70cbf4;
-  background-color: rgba(109, 173, 207, 0.1);
+  background-color: rgba(194,230,250,.1);
   margin-bottom: 42px;
   color: #092a5e;
   display: grid;
@@ -22,16 +22,33 @@
   grid-template-rows: auto;
   grid-template-areas:
     "logo title"
-    "content content";
+    "logo content";
   grid-auto-flow: row;
   grid-gap: 14px 12px;
   gap: 14px 12px;
+  font-family: TUIType,"Helvetica Neue",Helvetica,Arial,sans-serif;
+
+
+  @media(min-width:1024){
+    grid-template-columns: 76px auto;
+    grid-template-rows: 30px auto;
+    grid-template-areas: 
+    "logo title" 
+    "logo content";
+    grid-auto-flow: column;
+    gap: 0 20px;
+  }
 }
 
 .banner_trusted__icon {
   grid-area: logo;
   height: 76px;
   width: 76px;
+
+  @media(min-width: 1024px){
+    grid-row-start: 1;
+grid-row-end: span 2;
+  }
 }
 
 .banner_trusted__title {
@@ -40,6 +57,10 @@
   grid-area: title;
   align-self: center;
   font-weight: 700;
+
+  @media (min-width: 1024px){
+    align-self: unset;
+  }
 }
 
 .banner_trusted__content {
