@@ -1,71 +1,93 @@
 import './style.scss';
 import calendar_icon from './../../Assets/images/calendar_icon.svg'
+import { useState, useEffect } from 'react';
+import axios from "axios"
 
-export default function ActivityContentHead() {
+
+export default function ActivityContentHead({ contentUuid }) {
+    const [ activities, setActivitiesMedia ] = useState([]);
+
+    
+    const getActivitiesMedia = async () => {
+        const { data: activities } = await axios.get(`https://fe-tui-apiproxy.musement.com/activities/${contentUuid}`, {
+            headers: {
+              'Accept-Language': `de-DE`,
+              'x-musement-version': "3.4.0",
+            }});
+        setActivitiesMedia(activities);
+      }
+
+    useEffect(() => {
+        getActivitiesMedia();
+    }, []);
+
+    console.log('activitiesMedia= ', activities);
+
+
     return(
         <div className='ActivityContentHead'>
-            <section class="categories">
-                <span class="categories__label">Ausflüge &amp; Tagestouren</span>
-                <span class="categories__label">Kultur &amp; Geschichte</span>
-                <span class="categories__label">Must-Sees</span> 
-                <div class="tuiCategories_collection">
-                    <span class="tuiCategories_collection__label">TUI COLLECTION</span>
+            <section className="categories">
+                <span className="categories__label">Ausflüge &amp; Tagestouren</span>
+                <span className="categories__label">Kultur &amp; Geschichte</span>
+                <span className="categories__label">Must-Sees</span> 
+                <div className="tuiCategories_collection">
+                    <span className="tuiCategories_collection__label">TUI COLLECTION</span>
                 </div>
             </section>
 
             <header>
-                <section class="header__container">
-                    <h1 class="title__h1">Nysiros Spezial</h1>
+                <section className="header__container">
+                    <h1 className="title__h1">{activities.title}</h1>
                 </section> 
             </header>
 
-            <section class="info">
+            <section className="info">
 
-                <div class="info__container">
-                    <div class="info__container__row">
-                        <div data-test="activity-info__free_cancellation" class="free_cancellation_container">
-                            <span class="icon">
+                <div className="info__container">
+                    <div className="info__container__row">
+                        <div data-test="activity-info__free_cancellation" className="free_cancellation_container">
+                            <span className="icon">
                                 <img src={calendar_icon} alt="Calendar icon" />
                             </span> 
-                            <span class="info__free_cancellation">Kostenlose Stornierung</span>
+                            <span className="info__free_cancellation">Kostenlose Stornierung</span>
                         </div>
                     </div>
 
-                    <div class="info__container__row">
-                        <div class="info__container__row__icon">
-                            <img src="https://tui-b2c-static.imgix.net/icons/marker_place.svg" alt="place" title="" loading="lazy" class="icon" />
+                    <div className="info__container__row">
+                        <div className="info__container__row__icon">
+                            <img src="https://tui-b2c-static.imgix.net/icons/marker_place.svg" alt="place" title="" loading="lazy" className="icon" />
                         </div> 
                         <div>
-                            <span class="info__container__row__label">Ort:</span> 
+                            <span className="info__container__row__label">Ort:</span> 
                             <span>Kos</span>
                         </div>
                     </div>
 
-                    <div class="info__container__row">
-                        <div class="duration">
-                            <div class="duration__theme_activity_info__icon">
-                                <img src="https://tui-b2c-static.imgix.net/icons/duration.svg" alt="Dauer" title="" loading="lazy" class="icon" />
+                    <div className="info__container__row">
+                        <div className="duration">
+                            <div className="duration__theme_activity_info__icon">
+                                <img src="https://tui-b2c-static.imgix.net/icons/duration.svg" alt="Dauer" title="" loading="lazy" className="icon" />
                             </div> 
-                            <div class="duration__theme_activity_info__features">
+                            <div className="duration__theme_activity_info__features">
                                 <span>Dauer</span>
                                 <span>länger als 8 Stunden</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="info__container__row">
-                        <div class="info__container__row__icon">
-                            <img src="https://tui-b2c-static.imgix.net/icons/language.svg" alt="languages" title="" loading="lazy" class="icon" />
+                    <div className="info__container__row">
+                        <div className="info__container__row__icon">
+                            <img src="https://tui-b2c-static.imgix.net/icons/language.svg" alt="languages" title="" loading="lazy" className="icon" />
                         </div> 
                         <div>
-                            <span class="info__container__row__label">Sprache:</span> 
+                            <span className="info__container__row__label">Sprache:</span> 
                             <span>Deutsch</span>
                         </div>
                     </div>
 
-                    <div class="info__container__row">
-                        <div class="info__container__row__icon">
-                            <img src="https://tui-b2c-static.imgix.net/icons/mobile_voucher.svg" alt="voucher" title="" loading="lazy" class="icon" />
+                    <div className="info__container__row">
+                        <div className="info__container__row__icon">
+                            <img src="https://tui-b2c-static.imgix.net/icons/mobile_voucher.svg" alt="voucher" title="" loading="lazy" className="icon" />
                         </div> 
                         <span>Digitale Tickets</span>
                     </div>
@@ -73,32 +95,32 @@ export default function ActivityContentHead() {
                 </div>
             </section>
 
-            <div class="features">
-                <section class="carousel">
-                    <section class="carousel__slot">
-                        <div class="features__box">
-                            <div class="features__box__icon">
-                                <img src="https://tui-b2c-static.imgix.net/icons/feat_addva_guide.svg" alt="Geführte Tour" title="" loading="lazy" class="icon" />
+            <div className="features">
+                <section className="carousel">
+                    <section className="carousel__slot">
+                        <div className="features__box">
+                            <div className="features__box__icon">
+                                <img src="https://tui-b2c-static.imgix.net/icons/feat_addva_guide.svg" alt="Geführte Tour" title="" loading="lazy" className="icon" />
                             </div> 
-                            <span class="features__box__text">Geführte Tour</span>
+                            <span className="features__box__text">Geführte Tour</span>
                         </div>
-                        <div class="features__box">
-                            <div class="features__box__icon">
-                                <img src="https://tui-b2c-static.imgix.net/icons/feat_addva_vouch.svg" alt="Digitale Buchungsbestätigung" title="" loading="lazy" class="icon" />
+                        <div className="features__box">
+                            <div className="features__box__icon">
+                                <img src="https://tui-b2c-static.imgix.net/icons/feat_addva_vouch.svg" alt="Digitale Buchungsbestätigung" title="" loading="lazy" className="icon" />
                             </div> 
-                            <span class="features__box__text">Digitale Buchungsbestätigung</span>
+                            <span className="features__box__text">Digitale Buchungsbestätigung</span>
                         </div>
-                        <div class="features__box">
-                            <div class="features__box__icon">
-                                <img src="https://tui-b2c-static.imgix.net/icons/feat_istant.svg" alt="Sofortbestätigung" title="" loading="lazy" class="icon" />
+                        <div className="features__box">
+                            <div className="features__box__icon">
+                                <img src="https://tui-b2c-static.imgix.net/icons/feat_istant.svg" alt="Sofortbestätigung" title="" loading="lazy" className="icon" />
                             </div> 
-                            <span class="features__box__text">Sofortbestätigung</span>
+                            <span className="features__box__text">Sofortbestätigung</span>
                         </div>
-                        <div class="features__box">
-                            <div class="features__box__icon">
-                                <img src="https://tui-b2c-static.imgix.net/icons/feat_pick-up.svg" alt="Abholservice vom Hotel" title="" loading="lazy" class="icon" />
+                        <div className="features__box">
+                            <div className="features__box__icon">
+                                <img src="https://tui-b2c-static.imgix.net/icons/feat_pick-up.svg" alt="Abholservice vom Hotel" title="" loading="lazy" className="icon" />
                             </div> 
-                            <span class="features__box__text">Abholservice vom Hotel</span>
+                            <span className="features__box__text">Abholservice vom Hotel</span>
                         </div>
                     </section> 
                 </section>

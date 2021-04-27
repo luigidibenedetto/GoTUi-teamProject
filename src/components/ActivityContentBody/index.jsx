@@ -78,7 +78,7 @@ function ActivityContentBody() {
                                 <p>Sobald wir im Hafen von Mandraki, der Hauptstadt der Insel, angedockt haben, brechen wir in das antike Dorf Nikia am Rande des Stefanos-Kraters auf. Verlieren Sie sich im Labyrinth der gepflasterten Steinspuren oder finden Sie einen Ort in der Nähe des Kraterrandes, wo Sie die Hitze spüren können – ein einzigartiges Gefühl.</p>
                                 <p>Danach geht es zurück nach Mandraki. Die zuckerbedeckten Häuser erstrecken sich über diese Amphitheater-förmige Stadt, die im Schatten einer mittelalterlichen Burg und des klippenseitigen Klosters der Panagia Spiliani liegt. Es bleibt auch Zeit, die Balkonhäuser der Stadt zu bewundern oder in einer Taverne zu Abend zu essen, bevor es zurück nach Kos geht.</p>
                             </div>
-                            <label for="description" className="readMore__btn" onClick={() => ShowMoreLess('readMore__description__text', descriptionVisible, setDescription, 'description')}>
+                            <label htmlFor="description" className="readMore__btn" onClick={() => ShowMoreLess('readMore__description__text', descriptionVisible, setDescription, 'description')}>
                                 <span className="readMore__description__btn__less">
                                     Weniger anzeigen
                                 </span>
@@ -144,7 +144,7 @@ function ActivityContentBody() {
                                     <p>Am Vulkan ist eine Nachhaltigkeitsgebühr in der Höhe von 3 Euro zu entrichten</p>
                                     </div>
                                     </div>
-                                    <label for="info" className="readMore__btn" onClick={() => ShowMoreLess("readMore__info__text", infoVisible, setInfo, 'info')}>
+                                    <label htmlFor="info" className="readMore__btn" onClick={() => ShowMoreLess("readMore__info__text", infoVisible, setInfo, 'info')}>
                                         <span className="readMore__info__btn__less">
                                             Weniger anzeigen
                                         </span>

@@ -15,8 +15,8 @@ export default function ActivityPage() {
 			<ActivityHero contentUuid={uuid} />
 			<div className='ActivityContent'>
 				<div className='ActivityContent__container'>
-				<ActivityContentHead />
-				<ActivityContentBody />
+					<ActivityContentHead contentUuid={uuid}/>
+					<ActivityContentBody contentUuid={uuid}/>
 				</div>
 			</div>
       <ActivityRelated/>

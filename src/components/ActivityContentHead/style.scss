@@ -245,7 +245,7 @@
             .carousel__slot {
                 display: flex;
                 flex-wrap: nowrap;
-                overflow-x: scroll;
+                overflow-x: hidden;
                 overflow-y: hidden;
                 -webkit-overflow-scrolling: touch;
                 scroll-behavior: smooth;
