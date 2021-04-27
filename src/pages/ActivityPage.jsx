@@ -1,4 +1,5 @@
 import ActivityHero from '../components/ActivityHero'
+import ActivityContentHead from "../components/ActivityContentHead";
 
 export default function ActivityPage() {
 
@@ -8,7 +9,7 @@ export default function ActivityPage() {
   return (
     <div>
 			<ActivityHero contentUuid={uuid} />
-			<h1>Other ActivityPage...</h1>
+			<ActivityContentHead />
 		</div>
 	);
 }
