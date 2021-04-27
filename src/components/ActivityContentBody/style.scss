@@ -115,14 +115,10 @@
       display: none;
     }
 
-    .readMore__text {
+    .readMore__description__text {
       margin-bottom: 10px;
       max-height: 90px;
       overflow: hidden;
-
-      @media (min-width: 768px) {
-        max-height: 94px;
-      }
     }
 
     .readMore__btn {
@@ -185,6 +181,12 @@
           padding-bottom: 20px;
         }
       }
+    }
+
+    .readMore__info__text {
+      margin-bottom: 10px;
+      max-height: 90px;
+      overflow: hidden;
     }
 
     .content__fluid__container__title,
