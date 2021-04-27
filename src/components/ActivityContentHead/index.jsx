@@ -5,23 +5,26 @@ import axios from "axios"
 
 
 export default function ActivityContentHead({ contentUuid }) {
-    const [ activities, setActivitiesMedia ] = useState([]);
+    const [ activities, setActivities ] = useState([]);
+    
 
     
-    const getActivitiesMedia = async () => {
+    const getActivities = async () => {
         const { data: activities } = await axios.get(`https://fe-tui-apiproxy.musement.com/activities/${contentUuid}`, {
             headers: {
               'Accept-Language': `de-DE`,
               'x-musement-version': "3.4.0",
             }});
-        setActivitiesMedia(activities);
+        setActivities(activities);
       }
 
+      
+
     useEffect(() => {
-        getActivitiesMedia();
+        getActivities();
     }, []);
 
-    console.log('activitiesMedia= ', activities);
+    console.log('activities= ', activities);
 
 
     return(

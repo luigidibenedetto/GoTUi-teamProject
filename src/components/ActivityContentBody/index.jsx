@@ -1,11 +1,29 @@
 import { useState } from 'react';
 import './style.scss';
+import { useEffect } from 'react';
+import axios from "axios"
+
 
 function ActivityContentBody() {
 
     const [descriptionVisible, setDescription] = useState(false);
     const [infoVisible, setInfo] = useState(false);
+    const [ activitiesTax, setActivitiesTax ] = useState([]);
+
+    const getActivitiesTax = async () => {
+        const { data: activities } = await axios.get(`https://fe-tui-apiproxy.musement.com/activities/${contentUuid}/taxonomies`, {
+            headers: {
+              'Accept-Language': `de-DE`,
+              'x-musement-version': "3.4.0",
+            }});
+        setActivitiesTax(activities);
+    }
+
+    useEffect(() => {
+        getActivitiesTax();
+    }, []);
     
+    console.log('activitiesTax= ', activitiesTax);
 
     function ShowMoreLess(className, stateVariable, stateFunction, infordescription) {
         
