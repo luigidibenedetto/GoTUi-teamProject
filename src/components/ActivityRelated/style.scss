@@ -1,0 +1,49 @@
+.activity_related{
+    background-color: #f2f5f6;
+}
+
+.activity_related_body{
+    max-width: 1440px;
+    margin: auto;
+    padding: 25px 15px 50px;
+
+    @media(min-width: 768px){
+        padding: 30px 30px 60px;
+    }
+
+    @media(min-width: 1024px){
+        padding: 50px 60px;
+    }
+}
+
+.activity_related_title{
+    padding-bottom: 10px;
+    font-family: TUITypeLtBd,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #232323;
+    font-size: 22px;
+    line-height: 26px;
+    text-align: left;
+
+    @media(min-width: 768px){
+        padding-bottom: 20px;
+        font-size: 26px;
+        line-height: 30px;
+    }
+    @media(min-width: 1024px){
+        font-size: 26px;
+        line-height: 30px;
+
+    }
+}
+
+.activity_slot {
+    min-width: 280px;
+    max-width: 281px;
+    min-height: 335px;
+
+    @media (min-width: 1024px) {
+        min-width: 318px;
+        max-width: 319px;
+        height: 395px;
+        }
+}

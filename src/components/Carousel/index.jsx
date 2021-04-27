@@ -2,7 +2,7 @@ import { useState, useRef } from "react"
 
 import "./style.scss";
 
-function Carousel ({ title, cards, children }) {
+function Carousel ({ title, cards, children}) {
 
   //const titleTopCities = "TOP DESTINATIONS"; //lingua variabile
   const widthCard = 334; //larghezza card + padding (318 + 16)

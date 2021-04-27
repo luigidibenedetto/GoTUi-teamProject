@@ -1,5 +1,6 @@
 import ActivityHero from '../components/ActivityHero'
 import ActivityContentHead from "../components/ActivityContentHead";
+import ActivityRelated from '../components/ActivityRelated'
 
 export default function ActivityPage() {
 
@@ -10,6 +11,7 @@ export default function ActivityPage() {
     <div>
 			<ActivityHero contentUuid={uuid} />
 			<ActivityContentHead />
+      <ActivityRelated/>
 		</div>
 	);
 }
