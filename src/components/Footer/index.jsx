@@ -11,7 +11,7 @@ import './style.scss';
 
 export default function Footer() {
     const mql = window.matchMedia('(min-width: 1024px)');
-    const [showLinks, setShowLinks] = useState(mql.matches ? true : false);
+    const [ showLinks, setShowLinks ] = useState(mql.matches ? true : false);
     const [ currencies, setCurrencies ] = useState([]);
 
     const codeLanguage = useSelector(state => state.language);
@@ -71,7 +71,7 @@ export default function Footer() {
                         <label htmlFor="language" className="dropdown__label">Sprache:</label> 
                         <select id="language" className="dropdown__select" onChange={(e) => onChangeLanguage(e.target.value)}>
                             {Languages.map((language, index) => (
-                                <option value={language.LANGUAGE} key={index} selected={window.location.pathname === ("/" + language.CODE) ? "selected" : ""}>
+                                <option value={language.LANGUAGE} key={index} selected={(window.location.pathname.split("/")[1]) === language.CODE ? "selected" : ""}>
                                     {language.TEXT}
                                 </option>
                             ))}
