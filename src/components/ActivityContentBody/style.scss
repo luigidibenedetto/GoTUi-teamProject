@@ -20,6 +20,11 @@
 
   .content__fluid {
     display: flex;
+    flex-direction: column;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
   }
 
   .content__container,
@@ -119,17 +124,16 @@
       display: none;
     }
 
-    .readMore__description__text {
+    .readMore__description__text__hidden {
       margin-bottom: 10px;
+      max-height: 90px;
+      overflow: hidden;
+    }
 
-      .invisible {
-        display: none;
-      }
-
-      .visible {
-        display: flex;
-        flex-direction: column;
-      }
+    .readMore__description__text__visible {
+      margin-bottom: 10px;
+      max-height: none;
+      overflow: visible;
     }
 
     .readMore__info__btn,
@@ -187,17 +191,15 @@
       }
     }
 
-    .readMore__info__text {
+    .readMore__info__text__hidden {
       margin-bottom: 10px;
-
-      .invisible {
-        display: none;
-      }
-
-      .visible {
-        display: flex;
-        flex-direction: column;
-      }
+      max-height: 50px;
+      overflow: hidden;
+    }
+    .readMore__info__text__visible {
+      margin-bottom: 10px;
+      max-height: none;
+      overflow: visible;
     }
 
     .content__fluid__container__title,
