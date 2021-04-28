@@ -5,16 +5,13 @@ import ActivityContentBody from '../../components/ActivityContentBody';
 
 import './style.scss';
 
-export default function ActivityPage() {
-
-	//deve arrivare come props
-  const uuid = "47543853-76bc-4cbb-b4e1-4c2030f216f9"
+export default function ActivityPage({ uuid }) {
 
   return (
-    <div>
+    <div className="ActivityPage">
 			<ActivityHero uuid={uuid} />
-			<div className='ActivityContent'>
-				<div className='ActivityContent__container'>
+			<div className='activity_content'>
+				<div className='activity_content__container'>
 					<ActivityContentHead uuid={uuid}/>
 					<ActivityContentBody uuid={uuid}/>
 				</div>

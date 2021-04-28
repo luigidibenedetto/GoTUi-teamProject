@@ -15,6 +15,8 @@ import { useSelector } from "react-redux";
 function App() {
 
   const defaultPath = useSelector(state => state.path);
+  const uuid = "47543853-76bc-4cbb-b4e1-4c2030f216f9"
+
 
   return (
     <Router>
@@ -22,7 +24,7 @@ function App() {
         <Header />
         <Switch>
           <Route path="/:lang/:destination/:activity">
-            <ActivityPage />
+            <ActivityPage uuid={uuid} />
           </Route>
           <Route path="/:lang/:destination/">
             <DestinationPage />
