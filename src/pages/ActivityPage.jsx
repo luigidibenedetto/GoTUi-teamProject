@@ -6,7 +6,7 @@ import {useSelector} from 'react-redux'
 export default function ActivityPage() {
   
 	const uuid = useSelector(state => state.uuid);
-	//deve arrivare come props
+
  
   return (
     <div>
