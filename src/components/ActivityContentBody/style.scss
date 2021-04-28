@@ -121,11 +121,19 @@
 
     .readMore__description__text {
       margin-bottom: 10px;
-      max-height: 90px;
-      overflow: hidden;
+
+      .invisible {
+        display: none;
+      }
+
+      .visible {
+        display: flex;
+        flex-direction: column;
+      }
     }
 
-    .readMore__btn {
+    .readMore__info__btn,
+    .readMore__description__btn {
       font-family: TUIType, "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-size: 14px;
       cursor: pointer;
@@ -142,16 +150,6 @@
       @media (min-width: 1024px) {
         font-family: TUIType, "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-size: 20px;
-      }
-
-      .readMore__info__btn__less,
-      .readMore__description__btn__less {
-        display: none;
-      }
-
-      .readMore__info__btn__more,
-      .readMore__description__btn__more {
-        display: inline;
       }
     }
 
@@ -191,8 +189,15 @@
 
     .readMore__info__text {
       margin-bottom: 10px;
-      max-height: 90px;
-      overflow: hidden;
+
+      .invisible {
+        display: none;
+      }
+
+      .visible {
+        display: flex;
+        flex-direction: column;
+      }
     }
 
     .content__fluid__container__title,
