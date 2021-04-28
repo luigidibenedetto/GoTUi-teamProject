@@ -12,11 +12,11 @@ export default function ActivityPage() {
 
   return (
     <div>
-			<ActivityHero contentUuid={uuid} />
+			<ActivityHero uuid={uuid} />
 			<div className='ActivityContent'>
 				<div className='ActivityContent__container'>
-					<ActivityContentHead contentUuid={uuid}/>
-					<ActivityContentBody contentUuid={uuid}/>
+					<ActivityContentHead uuid={uuid}/>
+					<ActivityContentBody uuid={uuid}/>
 				</div>
 			</div>
       <ActivityRelated/>

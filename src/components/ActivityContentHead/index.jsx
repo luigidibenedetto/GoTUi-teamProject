@@ -4,19 +4,21 @@ import { useState, useEffect } from 'react';
 import axios from "axios"
 
 
-export default function ActivityContentHead({ contentUuid }) {
+export default function ActivityContentHead({ uuid }) {
     const [ activities, setActivities ] = useState([]);
+    const [ loaded, setLoaded ] = useState(false);
     
 
     
     const getActivities = async () => {
-        const { data: activities } = await axios.get(`https://fe-tui-apiproxy.musement.com/activities/${contentUuid}`, {
+        const { data: activities } = await axios.get(`https://fe-tui-apiproxy.musement.com/activities/${uuid}`, {
             headers: {
               'Accept-Language': `de-DE`,
               'x-musement-version': "3.4.0",
             }});
         setActivities(activities);
-      }
+        setLoaded(true);
+    }
 
       
 
@@ -24,18 +26,21 @@ export default function ActivityContentHead({ contentUuid }) {
         getActivities();
     }, []);
 
-    console.log('activities= ', activities);
-
+    console.log('----activities= ', activities);
+    console.log('----activities.categories= ', activities.categories);
+    console.log(loaded)
 
     return(
         <div className='ActivityContentHead'>
             <section className="categories">
-                <span className="categories__label">Ausflüge &amp; Tagestouren</span>
-                <span className="categories__label">Kultur &amp; Geschichte</span>
-                <span className="categories__label">Must-Sees</span> 
+            { loaded && (<>
+                <span className="categories__label">{activities.categories[1].name}</span>
+                <span className="categories__label">{activities.categories[2].name}</span>
+                <span className="categories__label">{activities.categories[3].name}</span>  
                 <div className="tuiCategories_collection">
-                    <span className="tuiCategories_collection__label">TUI COLLECTION</span>
+                <span className="tuiCategories_collection__label">{activities.categories[0].name.toUpperCase()}</span>
                 </div>
+                </>) }
             </section>
 
             <header>

@@ -4,14 +4,14 @@ import { useEffect } from 'react';
 import axios from "axios"
 
 
-function ActivityContentBody() {
+function ActivityContentBody( { uuid }) {
 
     const [descriptionVisible, setDescription] = useState(false);
     const [infoVisible, setInfo] = useState(false);
     const [ activitiesTax, setActivitiesTax ] = useState([]);
 
     const getActivitiesTax = async () => {
-        const { data: activities } = await axios.get(`https://fe-tui-apiproxy.musement.com/activities/${contentUuid}/taxonomies`, {
+        const { data: activities } = await axios.get(`https://fe-tui-apiproxy.musement.com/activities/${uuid}/taxonomies`, {
             headers: {
               'Accept-Language': `de-DE`,
               'x-musement-version': "3.4.0",
@@ -22,8 +22,8 @@ function ActivityContentBody() {
     useEffect(() => {
         getActivitiesTax();
     }, []);
-    
-    console.log('activitiesTax= ', activitiesTax);
+
+    console.log('activitiesTAX= ', activitiesTax);
 
     function ShowMoreLess(className, stateVariable, stateFunction, infordescription) {
         
