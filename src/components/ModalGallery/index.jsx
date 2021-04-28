@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 
 import './style.scss';
 
-function ModalGallery({ activitiesMedia, isOpen, contentUuid, closeModal}) {
+function ModalGallery({ activitiesMedia, isOpen, closeModal}) {
 
   const [ numPage, setNumPage ] = useState(1);
     
@@ -18,13 +18,6 @@ function ModalGallery({ activitiesMedia, isOpen, contentUuid, closeModal}) {
   function fnScrollArrow(scrollOffset) {
     ref.current.scrollLeft += scrollOffset;
   }
-
-  useEffect(() => {
-    if (contentUuid) {
-      setNumPage(1);
-    }
-    // eslint-disable-next-line
-  }, [contentUuid]);
 
   return (isOpen && 
     <div className="ModalGallery" >

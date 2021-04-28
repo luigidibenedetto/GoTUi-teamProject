@@ -1,7 +1,6 @@
 import { Languages } from "../utils/static";
 
 export const SELECT_CURRENCY = "SELECT_CURRENCY";
-export const SET_UUID = "SET_UUID";
 
 function CodeCurrency() {
   const valueCurrency = window.localStorage.getItem("GoTUI-Currency")
@@ -47,5 +46,4 @@ export const defaultStore = {
   currency : CodeCurrency(),
   language : CodeLanguage(),
   path: CodePath(),
-  uuid: ""
 };
