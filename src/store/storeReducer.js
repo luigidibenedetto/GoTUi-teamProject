@@ -1,4 +1,4 @@
-import { defaultStore, SELECT_CURRENCY } from './constants';
+import { defaultStore, SELECT_CURRENCY, SET_I18N_BUNDLE } from './constants';
 
 function storeReducer(state = defaultStore, action) {
   switch(action.type) {
@@ -9,8 +9,15 @@ function storeReducer(state = defaultStore, action) {
             currency: action.payload
         }
 
+    case SET_I18N_BUNDLE:
+      return {
+          ...state,
+          i18nBundle: action.payload
+      }
+
+  
     default :
-        return state
+      return state
   }
 };
 
