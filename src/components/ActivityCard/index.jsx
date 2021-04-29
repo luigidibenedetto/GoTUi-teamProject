@@ -6,20 +6,9 @@ function ActivityCard({ activity }) {
 
   const path = useSelector(state => state.path);
 
-  function urlActivity() {
-    if (path.length < 6) {
-      //console.log("ACTIVITY", activity.url)
-      return window.document.URL + "/" + activity.url.split("/")[4] + "/" + activity.url.split("/")[5]
-
-    } else if (activity.url.split("/").length > 5) {
-      //console.log("ACTIVITY ELSE", activity.url)
-      return window.document.location.origin + "/" + path.split("/")[1] + "/" + activity.url.split("/")[4] + "/" + activity.url.split("/")[5]
-    }
-  }
-
   return (
     <div className="ActivityCard">
-      <a href={urlActivity()}>
+      <a href={activity.url.replace('https://www.gotui.com', '')}>
       
         <div className="card_cover">
 

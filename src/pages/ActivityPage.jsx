@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-//import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import axios from "axios";
 
 import ActivityHero from '../components/ActivityHero'
@@ -9,13 +9,14 @@ import ActivityRelated from '../components/ActivityRelated'
 export default function ActivityPage() {
   
 	const api = ["", "media", "related-activities?limit=4", "taxonomies" ];
-	//const language = useSelector(state => state.language);
+	const language = useSelector(state => state.language);
+	const currency = useSelector(state => state.currency);
 
 	const [ activitUuid, setActivitUuid ] = useState(null);
 	const [ apiActivity, setApiActivity ] = useState([]);
 
 	const getDeeplinks = async () => {
-    const { data: response } = await axios.get(`https://fe-apiproxy.musement.com/deeplinks?url=${btoa(window.location.pathname)}`)
+    const { data: response } = await axios.get(`https://fe-tui-apiproxy.musement.com/deeplinks?url=${btoa(window.location.pathname)}`)
 		setActivitUuid(response.identifier);
   }
 
@@ -26,8 +27,13 @@ export default function ActivityPage() {
 	useEffect(() => {
 		if (activitUuid) {
 			Promise.all(api.map((activity) => {
-				return axios.get(`https://fe-tui-apiproxy.musement.com/activities/${activitUuid}/${activity}`)
-				// verificare la lingua
+				return axios.get(`https://fe-tui-apiproxy.musement.com/activities/${activitUuid}/${activity}`, {
+					headers: {
+						'Accept-Language': `${language}`,
+						'x-musement-currency': `${currency}`,
+						'x-musement-version': "3.4.0",
+					}
+				})
 				})
 			)
 			.then((responses) => {
