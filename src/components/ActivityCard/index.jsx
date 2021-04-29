@@ -1,10 +1,6 @@
-import { useSelector } from "react-redux";
-
 import './style.scss';
 
 function ActivityCard({ activity }) {
-
-  const path = useSelector(state => state.path);
 
   return (
     <div className="ActivityCard">
