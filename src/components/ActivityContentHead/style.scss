@@ -9,12 +9,12 @@
 
   @media (min-width: 768px) {
     //activity_body_content
-    padding: 0 30px;
+    padding: 20px 30px;
   }
 
   @media (min-width: 1024px) {
     //activity_body_content
-    padding: 0 0 0 50px;
+    padding: 20px 0 0 50px;
     width: 100%;
   }
 
@@ -247,7 +247,6 @@
       .carousel__slot {
         display: flex;
         flex-wrap: nowrap;
-        overflow-x: hidden;
         overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
         scroll-behavior: smooth;
@@ -264,7 +263,7 @@
           justify-content: flex-start;
           align-items: center;
           min-width: 150px;
-          max-width: 150px;
+          max-width:fit-content;
 
           .features__box__icon {
             min-width: 28px;
