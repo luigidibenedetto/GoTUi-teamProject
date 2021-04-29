@@ -1,4 +1,6 @@
 import { useState, useRef } from "react";
+import { useSelector } from "react-redux";
+import { translateSelector } from '../../utils/translations'
 
 import ModalGallery from '../ModalGallery'
 
@@ -12,6 +14,8 @@ function ActivityHero({ activities, activitiesMedia }) {
   const [ active, setActive ] = useState(0);
 
   const ref = useRef(null);
+
+  const $t = useSelector(translateSelector)
 
   function fnScrollMouse () {
     if (ref.current.scrollLeft % widthPanel === 0) {
@@ -72,7 +76,7 @@ function ActivityHero({ activities, activitiesMedia }) {
                     alt="prova"
                   />
                 </div>
-                <span>Fotos ansehen</span>
+                <span>{$t('event.lightbox.btn.view')}</span>
               </div>
             </button>}
         </section>

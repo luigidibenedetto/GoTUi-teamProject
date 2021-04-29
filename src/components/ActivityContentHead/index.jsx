@@ -1,8 +1,11 @@
+import { useSelector } from "react-redux";
+import { translateSelector } from '../../utils/translations'
 import './style.scss';
 import calendar_icon from './../../Assets/images/calendar_icon.svg'
 
 export default function ActivityContentHead({ data }) {
-  return (
+    const $t = useSelector(translateSelector)
+    return (
       <div className='ActivityContentHead'>
         <section className="categories">
           { data.categories.map((category) => <span className="categories__label">  {category.name}</span>
@@ -23,7 +26,7 @@ export default function ActivityContentHead({ data }) {
                         <span className="icon">
                             <img src={calendar_icon} alt="Calendar icon" />
                         </span> 
-                        {data.free_cancellation && <span className="info__free_cancellation">Kostenlose Stornierung</span>}
+                        {data.free_cancellation && <span className="info__free_cancellation">{$t("event.free.cancellation")}</span>}
                     </div>
                 </div>
 
@@ -32,7 +35,7 @@ export default function ActivityContentHead({ data }) {
                         <img src="https://tui-b2c-static.imgix.net/icons/marker_place.svg" alt="place" title="" loading="lazy" className="icon" />
                     </div> 
                     <div>
-                        <span className="info__container__row__label">Ort:</span> 
+                        <span className="info__container__row__label">{$t("event.info.place")}:</span> 
                         <span>{data.city.name}</span>
                     </div>
                 </div>
@@ -43,7 +46,7 @@ export default function ActivityContentHead({ data }) {
                             <img src="https://tui-b2c-static.imgix.net/icons/duration.svg" alt="Dauer" title="" loading="lazy" className="icon" />
                         </div> 
                         <div className="duration__theme_activity_info__features">
-                            <span>Dauer</span>
+                            <span>{$t("event.info.duration")}</span>
                             {data.duration_range.min === 'PT8H' ? <span>länger als 8 Stunden</span> : ''}
                         </div>
                     </div>
@@ -54,8 +57,9 @@ export default function ActivityContentHead({ data }) {
                         <img src="https://tui-b2c-static.imgix.net/icons/language.svg" alt="languages" title="" loading="lazy" className="icon" />
                     </div> 
                     <div>
-                        <span className="info__container__row__label">Sprache:</span> 
-                        <span>{data.languages[0].name}</span>
+                        <span className="info__container__row__label">{$t("event.info.languages")}:</span>
+                        {data.languages.map(lang => <span>{lang.name}</span>)}
+                        
                     </div>
                 </div>
 
@@ -63,7 +67,7 @@ export default function ActivityContentHead({ data }) {
                     <div className="info__container__row__icon">
                         <img src="https://tui-b2c-static.imgix.net/icons/mobile_voucher.svg" alt="voucher" title="" loading="lazy" className="icon" />
                     </div> 
-                    {data.voucher_access_usage === "MOBILE" ? <span>Digitale Tickets</span> : ''}
+                    {data.voucher_access_usage === "MOBILE" ? <span>{$t("event.info.mobile_voucher")}</span> : ''}
                 </div>
 
             </div>

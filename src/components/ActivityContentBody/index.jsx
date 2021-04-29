@@ -1,16 +1,18 @@
 import { useState } from 'react';
+import { useSelector } from "react-redux";
+import { translateSelector } from '../../utils/translations'
 import './style.scss';
-
 
 function ActivityContentBody({ data }) {
   const [descriptionVisible, setDescriptionVisible] = useState(false);
   const [infoVisible, setInfoVisible] = useState(false);
+  const $t = useSelector(translateSelector)
 
   return (<div className="ActivityContentBody">
     <div>
       <section className="content">
         <section className="content__highlights">
-          <h2 className="content__highlights__title">Highlights</h2>
+          <h2 className="content__highlights__title">{$t('event.block.title.highlights')}</h2>
           <div>
             <ul className="list">
               {data.highlights.map((highlight, index) => <li className="list__row" key={index}>
@@ -23,21 +25,21 @@ function ActivityContentBody({ data }) {
           </div>
         </section>
         <section className="content__container">
-          <h2 className="content__container__title">Beschreibung</h2>   <div>
+          <h2 className="content__container__title">{$t('event.block.title.expect'  )}</h2>   <div>
             <div>
               <input id="description" type="checkbox" className="readMore__trigger" />
               <div className={descriptionVisible ? 'readMore__description__text__visible' : 'readMore__description__text__hidden'}>
                 {data.description}
               </div>
               <label htmlFor="description" className="readMore__description__btn" onClick={() => setDescriptionVisible(!descriptionVisible)}>
-                {descriptionVisible ? 'Weniger anzeigen' : 'Mehr erfahren'}
+                {descriptionVisible ? $t('common.link.read_more') : $t('common.link.read_less')}
               </label>
             </div>
           </div>
         </section>
         <section className="content__fluid">
           <section className="content__fluid__container">
-            <h2 className="content__fluid__container__title">Inbegriffen</h2>
+            <h2 className="content__fluid__container__title">{$t('event.block.title.included')}</h2>
             <div>
               <ul className="list">
                 {data.included.map((inclusion, index) => <li className="list__row" key={index}>
@@ -64,7 +66,7 @@ function ActivityContentBody({ data }) {
               </div>
               <label htmlFor="info" className="readMore__info__btn" 
               onClick={() => setInfoVisible(!infoVisible)}> 
-              {infoVisible ? 'Weniger anzeigen' : 'Mehr erfahren'}
+              {infoVisible ? $t('common.link.read_more') : $t('common.link.read_less')}
               </label>
             </div>
           </div>
@@ -74,27 +76,20 @@ function ActivityContentBody({ data }) {
             <div>
               <div>
                 <h2 className="refundPolicies__title">
-                  Stornierungsbedingungen
+                  {$t('event.block.title.refound_policies')}
                 </h2>
                 <span>
-                  Sie erhalten eine Erstattung in Höhe von 100%, wenn Sie bis zu 1 Tag vor Ihrem Erlebnis stornieren.
+                  {$t("event.cancellation.fee.cannot_cancel")}
                 </span>
               </div>
             </div>
           </section>
-          <section className="content__fluid__container">
-            <h2 className="content__fluid__container__title">
-              Anbieter
-            </h2>
-            <div>{data.supplier.company_name}</div>
-          </section>
         </section>
-        <section className="content__fluid"></section>
-        <section className="content__container">
+          <section className="content__container">
           <h2 className="content__container__title">
-            Buchungsgebühr
+            {$t('event.block.title.booking_fee')}
           </h2>
-          <span>Für diese Buchung fallen keine zusätzlichen Kosten an.</span>
+          <span>{$t("event.service.without.fee")}</span>
         </section>
       </section>
     </div>
