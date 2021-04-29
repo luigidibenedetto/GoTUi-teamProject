@@ -1,44 +1,10 @@
 import { useState } from 'react';
 import './style.scss';
-import { useEffect } from 'react';
-import axios from "axios"
 
-
-function ActivityContentBody({ uuid }) {
+function ActivityContentBody({ activities }) {
 
   const [descriptionVisible, setDescription] = useState(false);
   const [infoVisible, setInfo] = useState(false);
-  const [activities, setActivities] = useState([]);
-  const [activitiesTax, setActivitiesTax] = useState([]);
-  const [loaded1, setLoaded1] = useState(false);
-  const [loaded2, setLoaded2] = useState(false);
-
-  const getActivities = async () => {
-    const { data: activities } = await axios.get(`https://fe-tui-apiproxy.musement.com/activities/${uuid}`, {
-      headers: {
-        'Accept-Language': `de-DE`,
-        'x-musement-version': "3.4.0",
-      }
-    });
-    setActivities(activities);
-    setLoaded1(true)
-  }
-
-  const getActivitiesTax = async () => {
-    const { data: activities_tax } = await axios.get(`https://fe-tui-apiproxy.musement.com/activities/2fd6d149-4e02-4021-ae4a-45cf0dc385bd/taxonomies`, {
-      headers: {
-        'Accept-Language': `de-DE`,
-        'x-musement-version': "3.4.0",
-      }
-    });
-    setActivitiesTax(activities_tax);
-    setLoaded2(true)
-  }
-
-  useEffect(() => {
-    getActivities();
-    getActivitiesTax();
-  }, []);
 
   function ShowMoreLess(stateVariable, stateFunction) {
 
@@ -52,15 +18,14 @@ function ActivityContentBody({ uuid }) {
 
   }
 
-
   return (<div className="ActivityContentBody">
-    {loaded1 && loaded2 && <div>
+    
       <section className="content">
         <section className="content__highlights">
           <h2 className="content__highlights__title">Highlights</h2>
           <div>
             <ul className="list">
-              {console.log(activities)}
+              
               {activities.highlights.map((highlight, index) => <li className="list__row" key={index}>
                 <span className="content__highlights__icon">
                 </span>
@@ -146,7 +111,7 @@ function ActivityContentBody({ uuid }) {
           <span>Für diese Buchung fallen keine zusätzlichen Kosten an.</span>
         </section>
       </section>
-    </div>}
+    
     </div>)
 
 }

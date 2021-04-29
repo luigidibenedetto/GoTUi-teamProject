@@ -21,12 +21,14 @@ export default function Footer() {
     const dispatch = useDispatch()
  
     function onChangeLanguage (language) {
-        window.location.href = "/" + Languages.find((codeLanguage) => (language === (codeLanguage.LANGUAGE))).CODE
+        window.location.href = window.location.href.replace(window.location.href.split("/")[3], Languages.find((codeLanguage) => (language === (codeLanguage.LANGUAGE))).CODE)
+        //window.location.href = "/" + Languages.find((codeLanguage) => (language === (codeLanguage.LANGUAGE))).CODE + "/" + window.location.pathname.split("/")[2] + "/" + window.location.pathname.split("/")[3]
     }
 
     function onChangeCurrency (currency) {
         dispatch(changeCurrency(currency)) 
         window.localStorage.setItem("GoTUI-Currency", currency)
+        window.location.reload();
     }
 
     const getCurrencies = async () => {

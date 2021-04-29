@@ -32,11 +32,10 @@ function App() {
       dispatch(loadI18nBundle(response.data)) 
     }
     fetchI18nTranslations()
+    // eslint-disable-next-line
   }, [])
 
   const defaultPath = useSelector(state => state.path);
-  const uuid = "47543853-76bc-4cbb-b4e1-4c2030f216f9"
-
 
   return (
     <Router>
@@ -44,7 +43,7 @@ function App() {
         <Header />
         <Switch>
           <Route path="/:lang/:destination/:activity">
-            <ActivityPage uuid={uuid} />
+            <ActivityPage />
           </Route>
           <Route path="/:lang/:destination/">
             <DestinationPage />

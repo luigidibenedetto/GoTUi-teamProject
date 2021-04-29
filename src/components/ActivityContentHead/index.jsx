@@ -1,43 +1,30 @@
-import './style.scss';
 import calendar_icon from './../../Assets/images/calendar_icon.svg'
-import { useState, useEffect } from 'react';
-import axios from "axios"
-import { useSelector } from "react-redux";
 
-export default function ActivityContentHead({ uuid }) {
-  const [ activities, setActivities ] = useState([]);
-  const [ loaded, setLoaded ] = useState(false);
+import './style.scss';
+
+export default function ActivityContentHead({ activities }) {
+
+  return(
   
-  const language = useSelector(state => state.language);
-  
-
-  const getActivities = async () => {
-    const { data: activities } = await axios.get(`https://fe-tui-apiproxy.musement.com/activities/${uuid}`, {
-        headers: {
-          'Accept-Language': `${language}`,
-          'x-musement-version': "3.4.0",
-        }});
-    setActivities(activities);
-    setLoaded(true);
-  }
-
-  useEffect(() => {
-    getActivities();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  console.log('----activities= ', activities);
-
-  return(<>
-    {loaded && (
       <div className='ActivityContentHead'>
         <section className="categories">
-          <span className="categories__label">{activities.categories[1].name}</span>
-          <span className="categories__label">{activities.categories[2].name}</span>
-          <span className="categories__label">{activities.categories[3].name}</span>  
-          <div className="tuiCategories_collection">
-            <span className="tuiCategories_collection__label">{activities.categories[0].name.toUpperCase()}</span>
-          </div>
+            {activities.categories[0].name === "TUI collection" 
+            ? <div className="categories">
+                {activities.categories.filter((category, index) => (index < 4 && index > 0)).map((category, index) => (
+                <span className="categories__label" key={index}>{category.name}</span>
+                ))}
+
+                <div className="tuiCategories_collection">
+                    <span className="tuiCategories_collection__label">{activities.categories[0].name.toUpperCase()}</span>
+                </div>
+            </div>
+            : <div className="categories">
+                 {activities.categories.filter((category, index) => (index < 4)).map((category, index) => (
+                <span className="categories__label" key={index}>{category.name}</span>
+                ))}
+              </div>
+            }
+
         </section>
 
         <header>
@@ -84,10 +71,12 @@ export default function ActivityContentHead({ uuid }) {
                     <div className="info__container__row__icon">
                         <img src="https://tui-b2c-static.imgix.net/icons/language.svg" alt="languages" title="" loading="lazy" className="icon" />
                     </div> 
+                    {activities.languages.length > 0 && 
                     <div>
                         <span className="info__container__row__label">Sprache:</span> 
                         <span>{activities.languages[0].name}</span>
                     </div>
+                    }
                 </div>
 
                 <div className="info__container__row">
@@ -131,7 +120,7 @@ export default function ActivityContentHead({ uuid }) {
           </section>
         </div>  
       </div>
-    )}
-  </>  
+ 
+  
   )
 }
