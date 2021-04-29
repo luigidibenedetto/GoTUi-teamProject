@@ -1,15 +1,18 @@
+import { useSelector } from "react-redux";
+import { translateSelector } from '../../utils/translations'
 import './style.scss';
 
 function VideoBlock() {
+    const $t = useSelector(translateSelector)
     return <section className="home__benefits">
                 <section className="home__benefits__content">
                     <div className="home__benefits__content__section">
                         <div className="benefits">
                             <h2 className="title__h2">
-                            Travel inspiration
+                            {$t('home.title.holiday_inspirations')}
                             </h2>
                         <span className="benefits__subtitle">
-                             With TUI, the world is at your feet
+                             {$t("home.subtitle.holiday_inspirations")}
                         </span>
                         <div className="benefits__video">
                             <div className="benefits__embed">
@@ -18,7 +21,6 @@ function VideoBlock() {
                                 </video>
                             </div>
                         </div>
-                        {/*qui ci va il TakeCare component */}
                     </div>
                 </div>
             </section>

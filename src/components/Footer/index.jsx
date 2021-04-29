@@ -2,6 +2,7 @@ import logo from './../../Assets/images/logo.svg';
 import { useState, useEffect } from 'react';
 import axios from "axios"
 import { useDispatch, useSelector } from "react-redux";
+import { translateSelector } from '../../utils/translations'
 
 import { changeCurrency } from "../../store/action"
 import { Languages } from "../../utils/static";
@@ -10,6 +11,7 @@ import { Languages } from "../../utils/static";
 import './style.scss';
 
 export default function Footer() {
+    const $t = useSelector(translateSelector)
     const mql = window.matchMedia('(min-width: 1024px)');
     const [ showLinks, setShowLinks ] = useState(mql.matches ? true : false);
     const [ currencies, setCurrencies ] = useState([]);
@@ -49,13 +51,13 @@ export default function Footer() {
             <div className="footer__top">
                 <div className="accordion" style={{borderBottom: showLinks ? 'none' : ''}} onClick={()=>setShowLinks(!showLinks)} >
                     <div className="accordion_bundle">
-                        <span className="accordion__title">Wir empfehlen</span>
+                        <span className="accordion__title">{$t('invoice_form.tab_company.text')}</span>
                         { showLinks && (
                             <div className="accordion__links">
-                                <a href="/de/mallorca/" >Mallorca</a>
-                                <a href="/de/punta-cana/" >Punta Cana</a>
-                                <a href="/de/cancun/" >Cancun</a>
-                                <a href="/de/tenerife/" >Tenerife</a>
+                                <a href="/de/mallorca/" >{$t('footer.mallorca')}</a>
+                                <a href="/de/punta-cana/" >{$t("footer.punta_cana")}</a>
+                                <a href="/de/cancun/" >{$t("footer.cancun")}</a>
+                                <a href="/de/tenerife/" >{$t("footer.tenerife")}</a>
                             </div>
                         )}
                     </div>
@@ -65,14 +67,14 @@ export default function Footer() {
                 </div>
 
                 <div className="top_preferences">
-                    <span className="top_preferences_title">Einstellungen</span>
+                    <span className="top_preferences_title">{$t("footer.text.preferences")}</span>
 
                     <div className="dropdown">
-                        <label htmlFor="language" className="dropdown__label">Sprache:</label> 
+                        <label htmlFor="language" className="dropdown__label">{$t('footer.text.language'    )}:</label> 
                         <select id="language" className="dropdown__select" onChange={(e) => onChangeLanguage(e.target.value)}>
                             {Languages.map((language, index) => (
                                 <option value={language.LANGUAGE} key={index} selected={(window.location.pathname.split("/")[1]) === language.CODE ? "selected" : ""}>
-                                    {language.TEXT}
+                                    {$t(`languages.${language.CODE}`)}
                                 </option>
                             ))}
                         </select>

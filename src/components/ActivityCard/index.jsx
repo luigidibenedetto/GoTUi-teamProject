@@ -1,6 +1,9 @@
+import { useSelector } from "react-redux";
+import { translateSelector } from '../../utils/translations'
 import './style.scss';
 
 function ActivityCard({ activity }) {
+  const $t = useSelector(translateSelector)
 
   return (
     <div className="ActivityCard">
@@ -39,16 +42,16 @@ function ActivityCard({ activity }) {
                 <img 
                   className="icon"
                   src="https://tui-b2c-static.imgix.net/icons/free_cancellation.svg"
-                  alt="icon"
+                  alt={$t("event.free.cancellation")}
                 />
               </div>
-              <span>Cancellazione gratuita</span>
+              <span>{$t("event.free.cancellation")}</span>
             </section>
             } 
 
             {activity.languages.length !== 0 && 
             <div className="content_languages">
-              <span className="flags_basics_label">A disposizione:</span>
+              <span className="flags_basics_label">{$t("common.available")}:</span>
               {activity.languages.map((flag) => (
                 <img 
                 className="flags_icon" 
@@ -62,7 +65,7 @@ function ActivityCard({ activity }) {
 
             <section className="content_bottom">
               <div className="price-wrapper">
-                <span className="price-prefix">A partire da:</span>
+                <span className="price-prefix">{$t("common.text.from")}:</span>
                 <div>
                   <span className="price">{activity.retail_price.formatted_value}</span>
                 </div>

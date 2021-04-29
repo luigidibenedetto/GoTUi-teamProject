@@ -1,6 +1,10 @@
+import { useSelector } from "react-redux";
+import { translateSelector } from '../../utils/translations'
+
 import './style.scss';
 
 function Hero() {
+  const $t = useSelector(translateSelector)
   return <div className='Hero'>
     <picture className="image_p">
       <source media="(max-width:320px)" srcSet="https://tui-b2c-static.imgix.net/images/homepage-hero.jpg?q=50&amp;fit=crop&amp;auto=format&amp;w=320&amp;h=200 1x, https://tui-b2c-static.imgix.net/images/homepage-hero.jpg?q=50&amp;fit=crop&amp;auto=format&amp;w=640&amp;h=400 2x" />
@@ -12,9 +16,9 @@ function Hero() {
 
     <div className='hero_overlay'>
       <div className="hero_overlay_text">
-        <h1 className="hero_overlay_title">Discover the world with TUI</h1>
+        <h1 className="hero_overlay_title">{$t('home.cover.title_1')}</h1>
         <span className="hero_overlay_message">
-          From activities to tours, the best experiences in your destination.
+          {$t("home.cover.title_2")}
         </span>
       </div>
     </div>

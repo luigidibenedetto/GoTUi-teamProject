@@ -1,6 +1,9 @@
+import { useSelector } from "react-redux";
+import { translateSelector } from '../../utils/translations'
 import './style.scss';
 
 function TakeCare() {
+  const $t = useSelector(translateSelector)
     return <div className='TakeCare'>
         <a href="https://tuitakescareofyou.gotui.com/uk/">
             <div className="banner_trusted">
@@ -10,13 +13,13 @@ function TakeCare() {
                     </div>
                 </div>
                 <div className="banner_trusted__title">
-                    TUI TAKES CARE OF YOU
+                    {$t("banner.trusted.title")}
                 </div>
                 <div className="banner_trusted__content">
                     <div>
-                        At TUI we want you to discover your destination with peace of mind. All of our experiences take every care to keep you safe. What’s more, they come with a flexible 24-hour cancellation policy and our value guarantee.
+                        {$t("banner.trusted.message")}
                         <span className="banner_trusted__content__moreinfo">
-                            Click here to find out more
+                            {$t("banner.trusted.clicktoknowmore")}
                         </span>
                     </div>
                 </div>
