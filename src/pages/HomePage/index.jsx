@@ -10,9 +10,10 @@ import Carousel from '../../components/Carousel/index';
 import TopCountries from '../../components/TopCountries/index'
 import VideoBlock from '../../components/VideoBlock';
 import InfoBlock from '../../components/InfoBlock'
-
 import DestinationCard from '../../components/DestinationCard/index';
 import ActivityCard from '../../components/ActivityCard/index';
+
+import { translateSelector } from '../../utils/translations'
 
 import "./style.scss"
 
@@ -24,6 +25,7 @@ export default function HomePage() {
   
   const language = useSelector(state => state.language);
   const currency = useSelector(state => state.currency);
+  const $t = useSelector(translateSelector)
 
   lang = language; 
   
@@ -61,7 +63,7 @@ export default function HomePage() {
 
         <div className="top_section">
           <TakeCare />
-          <Carousel title={"TOP DESTINATIONS"} cards={topCities}>
+          <Carousel title={$t('home.card_scroller.destination.title')} cards={topCities}>
             {topCities.map((card, index) => (
               <div className="destination_slot" key={index}>
                 <DestinationCard destination={card} />
@@ -69,7 +71,7 @@ export default function HomePage() {
             ))}
           </Carousel>
 
-          <Carousel title={"TOP ACTIVITIES"} cards={topActivities}>
+          <Carousel title={$t('home.card_scroller.trend.title')} cards={topActivities}>
             {topActivities.map((card, index) => (
               <div className="activity_slot" key={index}>
                 <ActivityCard activity={card} />

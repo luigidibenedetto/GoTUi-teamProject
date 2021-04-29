@@ -1,6 +1,7 @@
 import { Languages } from "../utils/static";
 
 export const SELECT_CURRENCY = "SELECT_CURRENCY";
+export const SET_I18N_BUNDLE = "SET_I18N_BUNDLE";
 
 function CodeCurrency() {
   const valueCurrency = window.localStorage.getItem("GoTUI-Currency")
@@ -46,4 +47,5 @@ export const defaultStore = {
   currency : CodeCurrency(),
   language : CodeLanguage(),
   path: CodePath(),
+  i18nBundle: {},
 };
