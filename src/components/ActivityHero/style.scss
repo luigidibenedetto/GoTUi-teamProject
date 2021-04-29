@@ -20,9 +20,9 @@
     }
     .hero_carousel {
       height: 200px;
-      @media (min-width: 768px) {
-        height: 280px;
-      }
+      // @media (min-width: 768px) {
+      //   height: 280px;
+      // }
 
       .gallery {
         position: relative;

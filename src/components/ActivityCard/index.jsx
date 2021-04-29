@@ -7,12 +7,12 @@ function ActivityCard({ activity }) {
       <a href={activity.url.replace('https://www.gotui.com', '')}>
       
         <div className="card_cover">
-
+          {activity.categories.length > 0 && 
           <span className="cover_label">{(activity.categories[0].name === "TUI collection" || activity.categories[0].name === "PLUS") 
             ? activity.categories[1].name 
             : activity.categories[0].name}
           </span>
-
+        }
           <div className="cover_image-wrapper">
             <img 
               className="image"
@@ -23,9 +23,11 @@ function ActivityCard({ activity }) {
         </div>
 
         <div className="card_content">
-          {(activity.categories[0].name === "TUI collection" || activity.categories[0].name === "PLUS") 
-            && <span className="content_label">{activity.categories[0].name}</span>}
-            
+
+          {activity.categories.length > 0 
+          ? (activity.categories[0].name === "TUI collection" || activity.categories[0].name === "PLUS") 
+            && <span className="content_label">{(activity.categories[0].name).toUpperCase() }</span> 
+          : null}
           <section className="content_heading">
             <h3 className="heading_title">{activity.title}</h3>
             <p className="heading_description">{activity.description}</p>

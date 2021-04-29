@@ -17,7 +17,7 @@ function ActivityContentBody({ activities }) {
     }
 
   }
-
+  
   return (<div className="ActivityContentBody">
     
       <section className="content">
