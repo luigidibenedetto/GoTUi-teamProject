@@ -1,0 +1,27 @@
+.ActivityPage{
+  background-color: #fff;
+}
+.activity_content {
+  max-width: 1440px;
+  margin: auto;
+  background-color: #fff;
+
+  @media (min-width: 768px) {
+    padding-top: 20px;
+  }
+
+  @media (min-width: 1024px) {
+    margin: 0; //aggiunto per sopperire alla mancanza di elementi in pagina
+    padding: 30px 60px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .activity_content__container {
+    @media (min-width: 1024px) {
+      padding: 0 0 0 50px;
+      width: 100%;
+    }
+  }
+}
