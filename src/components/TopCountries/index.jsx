@@ -16,6 +16,7 @@ function TopCountries() {
     const { data: countriesList } = await axios.get('https://fe-tui-apiproxy.musement.com/top-countries');
     setCountriesList(countriesList);
   }
+  
 
   useEffect(() => {
     Promise.all(countriesList.map((country) => {
