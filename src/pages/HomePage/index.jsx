@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import axios from "axios"
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+
+import axios from "axios";
 
 import Hero from '../../components/Hero'
 import TakeCare from '../../components/TakeCare'

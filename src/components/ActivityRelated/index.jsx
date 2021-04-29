@@ -1,22 +1,8 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios'
 import Carousel from '../Carousel'
 import ActivityCard from '../ActivityCard'
 import './style.scss'
 
-
-function ActivityRelated() {
-
-  const [topActivities, setTopActivities] = useState([]);
-
-  const getTopActivities = async () => {
-    const { data: topActivities } = await axios.get('https://fe-tui-apiproxy.musement.com/top-activities?sort_by=-relevance&limit=4')
-    setTopActivities(topActivities)
-  }
-
-  useEffect(() => {
-    getTopActivities();
-  }, []);
+function ActivityRelated({ topActivities }) {
 
     return (
       <section className="activity_related">

@@ -9,7 +9,7 @@
   left: 0;
   right: 0;
   z-index: 105;
-
+  
   .gallery__carousel {
     display: flex;
     flex-wrap: nowrap;
@@ -50,6 +50,10 @@
         }
       }
     }
+  }
+
+  .gallery__carousel::-webkit-scrollbar {
+    display: none;
   }
 
   .carousel__close_icon {
