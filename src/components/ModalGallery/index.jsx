@@ -23,7 +23,6 @@ function ModalGallery({ activitiesMedia, isOpen, closeModal}) {
     <div className="ModalGallery" >
       <div className="modal_overlay">
         <div className="modal_body">
-          {console.log('CIAO',activitiesMedia)}
           <section className="modal_gallery">
             <div className="gallery__carousel" ref={ref} onScroll={() => fnScrollMouse()}>
 

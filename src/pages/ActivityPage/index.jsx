@@ -7,11 +7,10 @@ import ActivityContentHead from "../../components/ActivityContentHead"
 import ActivityContentBody from "../../components/ActivityContentBody"
 import ActivityRelated from '../../components/ActivityRelated'
 
-import "./style.scss"
+import './style.scss'
 
 export default function ActivityPage() {
   
-	const api = ["", "media", "related-activities?limit=4", "taxonomies" ];
 	const language = useSelector(state => state.language);
 	const currency = useSelector(state => state.currency);
 
@@ -29,6 +28,7 @@ export default function ActivityPage() {
 
 	useEffect(() => {
 		if (activitUuid) {
+			const api = ["", "media", "related-activities?limit=4"];
 			Promise.all(api.map((activity) => {
 				return axios.get(`https://fe-tui-apiproxy.musement.com/activities/${activitUuid}/${activity}`, {
 					headers: {
@@ -44,17 +44,21 @@ export default function ActivityPage() {
 				setApiActivity(apiActivity)
 			});
 		}
-    // eslint-disable-next-line
-  }, [activitUuid])
-
+    
+  }, [activitUuid, currency, language])
+ 
   return (
     <div>
 			{apiActivity.length > 0 && 
 				<div>
 					<ActivityHero activities={apiActivity[0]} activitiesMedia={apiActivity[1]} />
-					<ActivityContentHead activities={apiActivity[0]} />
-					<ActivityContentBody activities={apiActivity[0]} />  
-					<ActivityRelated topActivities={apiActivity[2]} />
+					<div className='activity_content'>
+				    <div className='activity_content__container'>
+					    <ActivityContentHead data={apiActivity[0]} />
+					    <ActivityContentBody data={apiActivity[0]} />
+				    </div>
+			    </div>					
+          <ActivityRelated topActivities={apiActivity[2]}/>
 				</div>
 			}
 		</div>

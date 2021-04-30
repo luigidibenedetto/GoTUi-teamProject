@@ -32,8 +32,7 @@ function App() {
       dispatch(loadI18nBundle(response.data)) 
     }
     fetchI18nTranslations()
-    // eslint-disable-next-line
-  }, [])
+  }, [lang, dispatch])
 
   const defaultPath = useSelector(state => state.path);
 

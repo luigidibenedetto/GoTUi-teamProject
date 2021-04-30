@@ -39,11 +39,12 @@
     border: 1px solid #dce4e6;
     text-transform: uppercase;
     background-color: #fff;
-    margin: 3px 10px 3px 0;
+    margin: 3px 10px 10px 0;
     white-space: nowrap;
-    @media (min-width: 768px) {
-      margin: 0 10px 10px 0;
-    }
+  }
+
+  .tuiCategories_collection {
+    margin: 3px 10px 10px 0;
   }
 
   .tuiCategories_collection__label {

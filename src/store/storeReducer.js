@@ -7,7 +7,7 @@ function storeReducer(state = defaultStore, action) {
       return {
         ...state,
         currency: action.payload
-        }
+      }
 
     case SET_I18N_BUNDLE:
       return {
