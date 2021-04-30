@@ -1,7 +1,6 @@
 .ActivityContentBody {
   .content {
     padding: 15px;
-
     background-color: white;
     font-family: TUIType, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
@@ -10,11 +9,12 @@
     letter-spacing: 0.1px;
 
     @media (min-width: 768px) {
-      padding: 0 30px 50px 30px;
+      padding-bottom: 50px;
+      padding: 0 30px 20px;
     }
 
     @media (min-width: 1024px) {
-      padding: 0 0 0 50px;
+      padding: 0 0 30px 50px;
       width: 100%;
     }
 
@@ -123,12 +123,14 @@
       }
 
       .readMore__description__text__hidden {
+        max-width: 860px;
         margin-bottom: 10px;
         max-height: 90px;
         overflow: hidden;
       }
 
       .readMore__description__text__visible {
+        max-width: 860px;
         margin-bottom: 10px;
         max-height: none;
         overflow: visible;
@@ -190,11 +192,13 @@
       }
 
       .readMore__info__text__hidden {
+        max-width: 860px;
         margin-bottom: 10px;
         max-height: 50px;
         overflow: hidden;
       }
       .readMore__info__text__visible {
+        max-width: 860px;
         margin-bottom: 10px;
         max-height: none;
         overflow: visible;

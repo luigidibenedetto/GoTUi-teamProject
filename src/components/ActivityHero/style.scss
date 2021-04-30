@@ -4,7 +4,7 @@
     padding: 0 14px;
   }
   @media (min-width: 1024px) {
-    padding: 0 60px;
+    padding: 0 50px;
   }
 
   .hero_wrapper {
@@ -20,9 +20,9 @@
     }
     .hero_carousel {
       height: 200px;
-      @media (min-width: 768px) {
-        height: 280px;
-      }
+      // @media (min-width: 768px) {
+      //   height: 280px;
+      // }
 
       .gallery {
         position: relative;

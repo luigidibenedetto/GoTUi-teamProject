@@ -5,14 +5,14 @@ function storeReducer(state = defaultStore, action) {
 
     case SELECT_CURRENCY:
       return {
-          ...state,
-          currency: action.payload
+        ...state,
+        currency: action.payload
       }
 
     case SET_I18N_BUNDLE:
       return {
-          ...state,
-          i18nBundle: action.payload
+        ...state,
+        i18nBundle: action.payload
       }
 
     default :

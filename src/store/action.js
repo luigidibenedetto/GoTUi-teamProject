@@ -7,4 +7,3 @@ export const changeCurrency = (currency) => ({
 export const loadI18nBundle = (language) => ({
   type: SET_I18N_BUNDLE,  payload: language
 })
-  

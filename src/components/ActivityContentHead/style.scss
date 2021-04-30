@@ -9,12 +9,12 @@
 
   @media (min-width: 768px) {
     //activity_body_content
-    padding: 0 30px;
+    padding: 20px 30px;
   }
 
   @media (min-width: 1024px) {
     //activity_body_content
-    padding: 0 0 0 50px;
+    padding: 20px 0 0 50px;
     width: 100%;
   }
 
@@ -39,16 +39,17 @@
     border: 1px solid #dce4e6;
     text-transform: uppercase;
     background-color: #fff;
-    margin: 3px 10px 3px 0;
+    margin: 3px 10px 10px 0;
     white-space: nowrap;
-    @media (min-width: 768px) {
-      margin: 0 10px 0 0;
-    }
+  }
+
+  .tuiCategories_collection {
+    margin: 3px 10px 10px 0;
   }
 
   .tuiCategories_collection__label {
     font-family: TUITypeLtBd, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     background-color: #092a5e;
     color: #fff;
     padding: 4px 11px;
@@ -247,7 +248,6 @@
       .carousel__slot {
         display: flex;
         flex-wrap: nowrap;
-        overflow-x: hidden;
         overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
         scroll-behavior: smooth;
@@ -264,7 +264,7 @@
           justify-content: flex-start;
           align-items: center;
           min-width: 150px;
-          max-width: 150px;
+          max-width:fit-content;
 
           .features__box__icon {
             min-width: 28px;

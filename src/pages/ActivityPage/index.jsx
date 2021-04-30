@@ -28,7 +28,6 @@ export default function ActivityPage() {
 
 	useEffect(() => {
 		if (activitUuid) {
-      console.log(activitUuid)
 			const api = ["", "media", "related-activities?limit=4"];
 			Promise.all(api.map((activity) => {
 				return axios.get(`https://fe-tui-apiproxy.musement.com/activities/${activitUuid}/${activity}`, {

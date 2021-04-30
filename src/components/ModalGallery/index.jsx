@@ -23,7 +23,7 @@ function ModalGallery({ activitiesMedia, isOpen, closeModal}) {
     <div className="ModalGallery" >
       <div className="modal_overlay">
         <div className="modal_body">
-          <section className="gallery">
+          <section className="modal_gallery">
             <div className="gallery__carousel" ref={ref} onScroll={() => fnScrollMouse()}>
 
               {activitiesMedia.map((photo) => (
